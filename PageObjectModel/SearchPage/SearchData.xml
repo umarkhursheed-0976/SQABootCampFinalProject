@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Data>
+<ValidData>
+	<data1>hero hoodie</data1>
+	<data2>Sinbad Fitness</data2>
+	<data3>Breathe</data3>
+</ValidData>
+	<InvalidData>
+		<data1>
+		jfjgjfdh98497
+		</data1>
+		<data2>
+	     abc@#$%%!
+		</data2>
+		<data3>
+
+		</data3>
+		</InvalidData>
+	
+</Data>	
+	
+	

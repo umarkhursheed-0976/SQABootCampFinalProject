@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<user>
+	<validEmail>
+		<Email>raeesjut976@gmail.com</Email>
+		</validEmail>
+	<InvalidEmail>
+		<Email>raeesjut976.com</Email>
+	</InvalidEmail>
+	
+	
+	</user>

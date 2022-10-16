@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uers>
+	<SignUp_with_invalid_credentials>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname>saad</fname>
+		<lname>umar</lname>
+		<email>loveumom9191.com  </email>
+		<password>Jutt123htsrk%</password>
+		<confirmp>Jutt123htsk%</confirmp>
+	</SignUp_with_invalid_credentials>
+	<SignUp_with_valid_credentials>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname>Saad</fname>
+		<lname>Umar</lname>
+		<email>raeesjutt976@gmail.com</email>
+		<password>Jutt12345678@</password>
+		<confirmp>Jutt12345678@</confirmp>
+	</SignUp_with_valid_credentials>
+	<newuser>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname>Saad</fname>
+		<lname>Umar</lname>
+		<email>saadumar87649023165627634766776@gmail.com</email>
+		<password>Jutt12345678@</password>
+		<confirmp>Jutt12345678@</confirmp>
+	</newuser>
+	<newuser1>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname>Saad</fname>
+		<lname>Umar</lname>
+		<email>saadumar87064902316562763776@gmail.com</email>
+		<password>Jutt12345678@</password>
+		<confirmp>Jutt12345678@</confirmp>
+	</newuser1>
+	<Sign_up_new_user_with_valid_Credentials>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname>saad</fname>
+		<lname>umar</lname>
+		<email>saadumar@gmail.com</email>
+		<password>Jutt12345678@</password>
+		<confirmp>Jutt12345678@</confirmp>
+	</Sign_up_new_user_with_valid_Credentials>
+	<ClicKSignUpButtonWithOutEnterAnyData>
+		<url>https://magento.softwaretestingboard.com </url>
+		<fname></fname>
+		<lname></lname>
+		<email></email>
+		<password></password>
+		<confirmp></confirmp>
+	</ClicKSignUpButtonWithOutEnterAnyData>
+</uers>
