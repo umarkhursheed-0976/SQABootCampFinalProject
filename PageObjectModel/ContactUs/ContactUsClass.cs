@@ -20,7 +20,6 @@ namespace SQABootCampFinalProject.PageObjectModel.ContactUs
         By submitform = By.Id("input_7");
         By contactus = By.XPath("/html/body/div[2]/footer/div/div[2]/div/ul/li[3]/a");
         By contactusform = By.Id("header_8");
-        By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
 
         public void Contact_Us(string Name, string Email, string Contactno, string Message)
         {

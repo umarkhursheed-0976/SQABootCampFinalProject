@@ -2,9 +2,9 @@
 <uers>
 	<SignUp_with_invalid_credentials>
 		<url>https://magento.softwaretestingboard.com </url>
-		<fname>saad</fname>
-		<lname>umar</lname>
-		<email>loveumom9191.com  </email>
+		<fname>Saad</fname>
+		<lname>Umar</lname>
+		<email>loveumom9191.com </email>
 		<password>Jutt123htsrk%</password>
 		<confirmp>Jutt123htsk%</confirmp>
 	</SignUp_with_invalid_credentials>
@@ -12,31 +12,31 @@
 		<url>https://magento.softwaretestingboard.com </url>
 		<fname>Saad</fname>
 		<lname>Umar</lname>
-		<email>raeesjutt976@gmail.com</email>
+		<email>raeesjutt3654756776@gmail.com</email>
 		<password>Jutt12345678@</password>
 		<confirmp>Jutt12345678@</confirmp>
 	</SignUp_with_valid_credentials>
-	<newuser>
+	<signupWhileAddToWishlist>
 		<url>https://magento.softwaretestingboard.com </url>
 		<fname>Saad</fname>
 		<lname>Umar</lname>
-		<email>saadumar87649023165627634766776@gmail.com</email>
+		<email>saadumar87628552200634766776@gmail.com</email>
 		<password>Jutt12345678@</password>
 		<confirmp>Jutt12345678@</confirmp>
-	</newuser>
-	<newuser1>
+	</signupWhileAddToWishlist>
+	<RegisterBeforeCheckOut>
 		<url>https://magento.softwaretestingboard.com </url>
 		<fname>Saad</fname>
 		<lname>Umar</lname>
-		<email>saadumar87064902316562763776@gmail.com</email>
+		<email>saadumar80567832557764563776@gmail.com</email>
 		<password>Jutt12345678@</password>
 		<confirmp>Jutt12345678@</confirmp>
-	</newuser1>
+	</RegisterBeforeCheckOut>
 	<Sign_up_new_user_with_valid_Credentials>
 		<url>https://magento.softwaretestingboard.com </url>
-		<fname>saad</fname>
-		<lname>umar</lname>
-		<email>saadumar@gmail.com</email>
+		<fname>Saad</fname>
+		<lname>Umar</lname>
+		<email>saadumar896647646877658668@gmail.com</email>
 		<password>Jutt12345678@</password>
 		<confirmp>Jutt12345678@</confirmp>
 	</Sign_up_new_user_with_valid_Credentials>

@@ -13,32 +13,33 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using SQABootCampFinalProject.PageObjectModel.BaseClass;
+using System.IO;
+using SQABootCampFinalProject.PageObjectModel.ExtentClass;
 
 namespace SQABootCampFinalProject.PageObjectModel.LogInPage
 
 {
     [TestClass]
-    public class LoginPageTestCase : CommonMethodClass 
+    public class LoginPageTestCase : CommonMethodClass
     {
         [TestMethod, TestCategory("LogIn")]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.xml", "LoginWithValidcredentials", DataAccessMethod.Sequential)]
 
         public void LoginWithValidcredentials()
         {
-            exParentTest = extentReport.CreateTest(TestContext.TestName);
+          exParentTest = extentReport.CreateTest(TestContext.TestName);
             exChildTest = exParentTest.CreateNode("Login");
             SetUpApplication();
             string url = TestContext.DataRow["url"].ToString();
             string email = TestContext.DataRow["email"].ToString();
-            string pass = TestContext.DataRow["password"].ToString();
+            string pass = TestContext.DataRow["password"].ToString();        
             CommonMethodClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.LogIn_Valid(email, pass);
-            Close();                
-
+             
         }
         [TestMethod, TestCategory("LogIn")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.csv", "LoginWithInValidcredentials", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.xml", "LoginWithInValidcredentials", DataAccessMethod.Sequential)]
         public void LoginWithInvalidCredentials()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -50,10 +51,10 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             CommonMethodClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.LogIn_Invalid(email, pass);
-            Close();
+         
         }
-        [TestMethod, TestCategory("LogIn")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "Login.csv", "Login#csv", DataAccessMethod.Sequential)]
+        [TestMethod, TestCategory("LogIn")]    
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.csv", "LogIn#csv", DataAccessMethod.Sequential)]
 
         public void LogOut()
         {
@@ -66,7 +67,7 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             CommonMethodClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.SignOut(email, pass);
-            Close();
+           
         }
 
     }

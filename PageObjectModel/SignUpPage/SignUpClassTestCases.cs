@@ -32,8 +32,10 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT
 
         //private TestContext testContextInstance;
 
+
+
         [TestMethod]//TestCategory("SignUp")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\signup.xml", "SignUp_with_invalid_credentials", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SignUpPage\\signup.xml", "SignUp_with_invalid_credentials", DataAccessMethod.Sequential)]
         public void SignUp_with_invalid_credentials()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -47,11 +49,12 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT
             string confirmp = TestContext.DataRow["confirmp"].ToString();
             CommonMethodClass.driver.Url = url;
             SignUp obj = new SignUp();
-            obj.signup(fname, lname, email, pass, confirmp);
-
+            obj.Invalidsignup(fname, lname, email, pass, confirmp);
+            Sleep(3);
+            Close();
         }
         [TestMethod]// TestCategory("SignUp")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\signup.xml", "SignUp_with_valid_credentials", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SignUpPage\\signup.xml", "SignUp_with_valid_credentials", DataAccessMethod.Sequential)]
         public void Sign_up_with_Existing_User()
         { 
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -65,12 +68,14 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT
                 string confirmp = TestContext.DataRow["confirmp"].ToString();
                 CommonMethodClass.driver.Url = url;
                 SignUp obj = new SignUp();
-                obj.signup(fname, lname, email, pass, confirmp);
-            LogReport("Sign_up_with_Existing_User");
+                obj.SignUp_With_Existing_User(fname, lname, email, pass, confirmp);
+            Sleep(3);
+            Close();
+
         }
         //Sign up with valid credentia;s. Assert welcome screen
         [TestMethod]// TestCategory("SignUp")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\signup.xml", "Sign_up_new_user_with_valid_Credentials", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SignUpPage\\signup.xml", "Sign_up_new_user_with_valid_Credentials", DataAccessMethod.Sequential)]
         public void Sign_up_new_user_with_valid_Credentials()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -84,8 +89,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT
                 string confirmp = TestContext.DataRow["confirmp"].ToString();
                 CommonMethodClass.driver.Url = url;
                 SignUp obj = new SignUp();
-                obj.signup(fname, lname, email, pass, confirmp);
-              
+            obj.SignUp_With_new_User(fname, lname, email, pass, confirmp);
+            Close();
+
         }
         [TestMethod]//TestCategory("SignUp")]
         public void Click_Sign_Up_button_WithOut_Enter_AnyData()
@@ -94,11 +100,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT
             exChildTest = exParentTest.CreateNode("SignUp");
             SetUpApplication();
                 SignUp obj = new SignUp();
-                obj.ClickSignUpLink();
-                obj.ClickCreateA();
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-              
-         
+            obj.Click_SignUp_without_Empty_Fields();
+            Close();
+
         }
     }
 }

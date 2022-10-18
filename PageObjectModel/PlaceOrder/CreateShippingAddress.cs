@@ -17,7 +17,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
     public class CreateShippingAddress:CommonMethodClass
     {
         By createshippingaddress = By.XPath("/html/body/div[2]/main/div[1]/h1/span");
-        By state = By.Id("region_id");
+        By street1 = By.Id("street_1");
+        By selectstate = By.XPath("/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[3]/div/select");
+     
         By zipcode = By.Id("zip");
         By country = By.XPath("/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[5]/div/select");
         //billing address
@@ -45,10 +47,15 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Find_Elements_and_Validate(company);
             SetTextIntoTextBox("Contour Software house pvt, Lahore", company);
         }
+        public void Phone_No()
+        {
+            Find_Elements_and_Validate(phone);
+            SetTextIntoTextBox("+923086065776", phone);
+        }
         public void Street()
         {
-            Find_Elements_and_Validate(street);
-            SetTextIntoTextBox("Po KH 7676,California", street);
+            Find_Elements_and_Validate(street1);
+            SetTextIntoTextBox("Po KH 7676,California", street1);
         }
         public void City()
         {
@@ -56,15 +63,11 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             SetTextIntoTextBox("California", city);
 
         }
-        public void Phone_No()
-        {
-            Find_Elements_and_Validate(phone);
-            SetTextIntoTextBox("+923086065776", phone);
-        }
+        
         public void Select_State()
         {
-            Find_Elements_and_Validate(state);
-            SelectDropDownItems(state);
+            Implicitwait(10);
+            SelectDropDownItems(selectstate);
         }
         public void ZipCode()
         {
@@ -91,6 +94,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Is_saved_message_showing()
         {
+            Sleep(5);
             //verify 'You saved the address.'is visible
             GetElementText_And_Verify_Visibilit("You saved the address.", saveaddressmessage);
         }
@@ -125,13 +129,13 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         //verify 'Billing Information' is visible
         public void Is_Billing_Info_Visible()
         {
+            
             GetElementText_And_Verify_Visibilit("Billing Information", billinginfo);
-        }
-        public void Review_your_Order()
-        {
+            Sleep(2);
             Find_Elements_and_Validate(gotorevieworder);
             clickItems(gotorevieworder);
         }
+      
         public void Create_Stark_shipping_address()
         {
             Is_Create_Shipping_Address_Visible();
@@ -139,19 +143,17 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Phone_No();
             Street();
             City();
-            Select_State();
+           Select_State();
             ZipCode();
             Select_Country();
-     //     Check_default_billing_and_Shipping_address();
             Save_Address();
             Is_saved_message_showing();
             Ship_to_multiple_address_Showing();
             Remove_Item();
             GoTo_Shipping_Info();
-         //   Shipping_Method_Flat_rate();
             Contiue_To_BillingInfo();
             Is_Billing_Info_Visible();
-            Review_your_Order();
+     
         }
 
 

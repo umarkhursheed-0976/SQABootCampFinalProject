@@ -20,63 +20,73 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         By item1 = By.XPath("/html/body/div[2]/header/div[2]/div[2]/div[2]/form/div[1]/div/div[1]/ul/li[2]/span[1]");
         By item2 = By.XPath("/html/body/div[2]/header/div[2]/div[2]/div[2]/form/div[1]/div/div[1]/ul/li[2]/span[1]");
         By item3 = By.XPath("/html/body/div[2]/header/div[2]/div[2]/div[2]/form/div[1]/div/div[1]/ul/li[1]/span[1]");
-        By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
         By searchitem1 = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[2]/div[2]/ol/li[1]/div/div/strong/a");
         By relevantitems = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[2]/dl/dt");
         By searchitem2 = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[2]/div[2]/ol/li[2]/div/div/strong/a");
         By searchitem3 = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[2]/div[2]/ol/li[1]/div/div/strong/a");
 
 
-        public void Search_Item1(string text)
+        public void Verify_HomePage_Visible()
         {
             //Verify that home page is visible successfully
             GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
-            IWebElement ele = driver.FindElement(search);
-            SetTextIntoTextBox(text, search);
-            Sleep(2);
-            ele.SendKeys(Keys.Space);
-            Sleep(3);
-            clickItems(item1);
-            Implicitwait(5);
+        }
+        public void Verify_All_Products_Related_Search_Visible()
+        {
+            // Verify all the products related to search are visible
+            GetElementText_And_Verify_Visibilit("Related search terms", relevantitems);
+        }
+        public void Verify_Search_Product_Hero_Hoodie_Showing()
+        {
             //Verify 'SEARCHED PRODUCTS' is visible
             GetElementText_And_Verify_Visibilit("Hero Hoodie", searchitem1);
-            // Verify all the products related to search are visible
-             GetElementText_And_Verify_Visibilit("Related search terms", relevantitems);
+        }
+        public void Verify_Search_Product_Sinbad_Fitness_Showing()
+        {
+            //Verify 'SEARCHED PRODUCTS' is visible
+            GetElementText_And_Verify_Visibilit("Sinbad Fitness Tank", searchitem2);
+        }
+        public void Verify_Search_Breathe_Showing()
+        {
+            //Verify 'SEARCHED PRODUCTS' is visible
+            GetElementText_And_Verify_Visibilit("Breathe-Easy Tank", searchitem3);
+        }
+        public void Clear_SearchB0x()
+        {
+            Implicitwait(5);
             Clear(search);
+        }
+
+        public void Search_Item1(string text)
+        { 
+            SetTextIntoTextBox(text, search);
+            Sleep(2);
+            Press_Space(search);
+            Sleep(3);
+            clickItems(item1);         
         }
         
         //search item2
         public void Search_Item2(string text)
         {
-            IWebElement ele = driver.FindElement(search);
+       
             SetTextIntoTextBox(text, search);
             Sleep(2);
-            ele.SendKeys(Keys.Space);
+            Press_Space(search);
             Sleep(3);
             clickItems(item2);
-            Implicitwait(5);
-            //Verify 'SEARCHED PRODUCTS' is visible
-            GetElementText_And_Verify_Visibilit("Sinbad Fitness Tank", searchitem2);
-            //Verify all the products related to search are visible
-            GetElementText_And_Verify_Visibilit("Related search terms", relevantitems);
-            Clear(search);
+    
         }
         //item3
         public void Search_Item3(string text)
-        {
-            IWebElement ele = driver.FindElement(search);
+        {   
             SetTextIntoTextBox(text, search);
             Sleep(2);
-            ele.SendKeys(Keys.Space);
+            Press_Space(search);
             Sleep(3);
             clickItems(item3);
-            Implicitwait(5);
-            //Verify 'SEARCHED PRODUCTS' is visible
-            GetElementText_And_Verify_Visibilit("Breathe-Easy Tank", searchitem3);
-            // Verify all the products related to search are visible
-            GetElementText_And_Verify_Visibilit("Related search terms", relevantitems);
-            Clear(search);
         }
+   
 
        
         public void Click_search_Button()
@@ -85,18 +95,42 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
             clickItems(clickbtn);
         
         }
-        public void Clear_text()
-        {
-            Clear(search);
-        }
+        
         public void Suggestion_Items(string text1,string text2,string text3)
         {
+            Verify_HomePage_Visible();
             Search_Item1(text1);
+            Verify_Search_Product_Hero_Hoodie_Showing();
+            Verify_All_Products_Related_Search_Visible();
+            Clear_SearchB0x();
             Sleep(2);
             Search_Item2(text2);
+            Verify_Search_Product_Sinbad_Fitness_Showing();
+            Verify_All_Products_Related_Search_Visible();
+            Clear_SearchB0x();
             Sleep(2);
             Search_Item3(text3);
+            Verify_Search_Breathe_Showing();
+            Verify_All_Products_Related_Search_Visible();
+            Clear_SearchB0x();
         }
+        public void Search_With_InvalidData(string text1, string text2, string text3)
+        {
+            Verify_HomePage_Visible();
+            Search_Item1(text1);
+            Click_search_Button();
+            Clear_SearchB0x();
+            
+            Search_Item2(text2);
+            Click_search_Button();
+            Clear_SearchB0x();
+       
+            Search_Item3(text3);
+            Click_search_Button();
+            Clear_SearchB0x();
+
+        }
+        
     }
 
 }

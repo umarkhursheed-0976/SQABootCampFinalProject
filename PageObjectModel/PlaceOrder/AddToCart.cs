@@ -31,7 +31,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         //Autum pullie item locators
         By isautumnpullie = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[1]/h1/span");
         By isvisibleaddtocartautumnpullie = By.XPath("/html/body/div[2]/main/div[1]/div[2]/div/div/div");
-        
+        public By isAtomicEndurancevisible = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[1]/h1/span");
 
 
 
@@ -76,15 +76,16 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         {
             //impliocit wait
             Implicitwait(20);
+            Find_Elements_and_Validate(red);
+            clickItems(red);
+            Sleep(3);
             Find_Elements_and_Validate(black);
             clickItems(black);
             Sleep(3);
             Find_Elements_and_Validate(blue);
             clickItems(blue);
             Sleep(4);
-            Find_Elements_and_Validate(red);
-            clickItems(red);
-            Sleep(3);
+            
 
         }
         public void Select_Orange_Red_White_Color()
@@ -100,24 +101,20 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Find_Elements_and_Validate(red);
             clickItems(red);
             Sleep(3);
-
-
         }
         public void Select_Strak_Item_Color()
         {
-            clickItems(black);
-            Sleep(1);
             clickItems(blue);
             Sleep(1);
             clickItems(purple);
-            Clear(quantity);
-            SetTextIntoTextBox("13", quantity);
+            clickItems(black);
+            Sleep(1);
         }
         public void Select_ItemQuantity()
         {
             Find_Elements_and_Validate(quantity);
             Clear(quantity);
-            SetTextIntoTextBox("20", quantity);
+            SetTextIntoTextBox("10", quantity);
             Sleep(2);
 
         }
@@ -139,13 +136,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Implicitwait(40);
             clickItems(cartitems);
         }
-        public void View_and_Edit_CartItems()
-        {
-            Implicitwait(30);
-            Find_Elements_and_Validate(viewcart);
-            clickItems(viewcart);
-           
-        }
+        
         public void AtomicEndurance_AddIntoCart_Message_Showing()
         {
             //verify 'You added Atomic Endurance Running Tee (Crew-Neck) to your shopping cart.' is visible
@@ -206,7 +197,15 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             clickItems(checkout);
             Sleep(10);
         }
-       
+        public void View_and_Edit_CartItems()
+        {
+            CartItems();
+            Implicitwait(30);
+            Find_Elements_and_Validate(viewcart);
+            clickItems(viewcart);
+
+        }
+
 
         public void Add_AtomicEndurance_Into_Cart()
         {
@@ -229,9 +228,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             AddToCart();
             Ingrid_Added_IntoCart_Showing();
             Add_To_Compare_List();
-            Add_To_Wish_List();
-            CartItems();
-            View_and_Edit_CartItems();
+            Add_To_Wish_List(); 
 
         }
         public void Add_starkItem_IntoCart()
@@ -244,7 +241,6 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             StarK_added_Into_cart_Showing();
             Add_To_Compare_List();
             Stark_added_into_ComparisonList_Showing();
-            CartItems();
             View_and_Edit_CartItems();
         }
         public void Add_Autum_IntoCart()
@@ -254,8 +250,6 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Select_ItemQuantity();
             AddToCart();
             Autumn_Pullie_Added_Into_ShoppingCart_Showing();
-            CartItems();
-            View_and_Edit_CartItems();
         }
         
       

@@ -27,10 +27,11 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
             SetUpApplication();
             CommonClass obj = new CommonClass();
             obj.PlaceOrder1();
+           
         }
     
         [TestMethod]// TestCategory("SignUp")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\signup.xml", "signupWhileAddToWishlist", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SignUpPage\\signup.xml", "signupWhileAddToWishlist", DataAccessMethod.Sequential)]
         public void PlaceOrder_Register_While_Add_Item_Ito_Wishlist()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -45,10 +46,12 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
             CommonMethodClass.driver.Url = url;
             CommonClass obj = new CommonClass();
             obj.PlaceOrder2(fname, lname, email, pass, confirmp);
+         
+            
 
         }
         [TestMethod] // TestCategory("SignUp")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\signup.xml", "RegisterBeforeCheckOut", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SignUpPage\\signup.xml", "RegisterBeforeCheckOut", DataAccessMethod.Sequential)]
         public void PlaceOrder_Register_Before_Checkout()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -63,7 +66,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
             CommonMethodClass.driver.Url = url;
             CommonClass obj = new CommonClass();
             obj.PlaceOrder3(fname, lname, email, pass, confirmp);
-
+           
         }
 
     }

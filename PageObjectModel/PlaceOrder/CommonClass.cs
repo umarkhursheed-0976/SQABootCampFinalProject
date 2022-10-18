@@ -35,8 +35,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         {
             homepage.MoveToIngridRunningItem();
             addtocart.Add_IngridRunning_into_Cart();
-       //   signup.SignUp_While_Addto_WishList(fname, lname, email, pass, confirmpass);
+            signup.SignUp_While_Addto_WishList(fname, lname, email, pass, confirmpass);
             wishlist.My_Wish_List_Visible();
+            addtocart.View_and_Edit_CartItems();
             shopcart.Shopping_Cart_Ingrid();
             shipaddress.Shipping_Address_Ingrid();
             order.Place_Order();
@@ -44,7 +45,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void PlaceOrder3(string fname, string lname, string email, string pass, string confirmpass)
         {
-      //    signup.SignUp_Before_CheckOut(fname, lname, email, pass, confirmpass);
+          signup.SignUp_Before_CheckOut(fname, lname, email, pass, confirmpass);
             homepage.Move_ToStark_Item();
             addtocart.Add_starkItem_IntoCart();
             shopcart.Shopping_Cart_Stark_Fundamental_Hoodie();

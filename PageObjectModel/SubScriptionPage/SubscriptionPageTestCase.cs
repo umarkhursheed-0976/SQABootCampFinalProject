@@ -15,7 +15,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScript
     public class SubscriptionPageTestCase:CommonMethodClass
     {
         [TestMethod, TestCategory("Subscription")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\PageObjectModel\\SubScriptionPage\\Subscription.xml", "validEmail", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SubScriptionPage\\Subscription.xml", "validEmail", DataAccessMethod.Sequential)]
         //valid eamil
         public void Subscription_With_Valid_Email_Homepage()
         {
@@ -25,10 +25,12 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScript
             string email = TestContext.DataRow["Email"].ToString();
             Subscriptionpage obj = new Subscriptionpage();
             obj.Subscription1(email);
+            Sleep(2);
+            Close();
         }
         //invalid email format
         [TestMethod, TestCategory("Subscription")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\PageObjectModel\\SubScriptionPage\\Subscription.xml", "InvalidEmail", DataAccessMethod.Sequential)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\SubScriptionPage\\Subscription.xml", "InvalidEmail", DataAccessMethod.Sequential)]
         public void Subscription_With_InValid_Email_HomePage()
         {
             exParentTest = extentReport.CreateTest(TestContext.TestName);
@@ -37,6 +39,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScript
             string email = TestContext.DataRow["Email"].ToString();
             Subscriptionpage obj = new Subscriptionpage();
             obj.Subscription2(email);
+            Sleep(2);
+            Close();
         }
 
     }

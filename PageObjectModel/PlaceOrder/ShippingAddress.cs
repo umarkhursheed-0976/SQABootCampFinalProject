@@ -19,7 +19,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         By shippingaddress = By.XPath("/html/body/div[2]/main/div[2]/div/div[2]/div[4]/ol/li[1]/div[1]");
         By next = By.XPath("/html/body/div[2]/main/div[2]/div/div[2]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button/span");
         //SignIn while shipping
-        By signin = By.XPath("/html/body/div[2]/main/div[2]/div/div[2]/div[1]/button/span");
+        By signinn = By.XPath("/html/body/div[2]/main/div[2]/div/div[2]/div[1]/button/span");
         By logineamil = By.Id("login-email");
         By loginpassword = By.Id("login-password");
         By clicktosignin = By.XPath("/html/body/div[2]/main/div[2]/div/div[2]/div[1]/aside/div[2]/div/div/div/div[3]/form/div[2]/div[1]/button/span");
@@ -32,13 +32,14 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         // verify 'Shipping Address' is visible
         public void Shipping_Address_Visible()
         {
+            Sleep(5);
             //verify 'Shipping Address' is visible
             GetElementText_And_Verify_Visibilit("Shipping Address", shippingaddress);
         }
         public void SignInWhileShipping()
         {
             Shipping_Address_Visible();
-            clickItems(signin);
+            clickItems(signinn);
             Sleep(3);
             SetTextIntoTextBox("saadumar87649023165627634766776@gmail.com", logineamil);
             SetTextIntoTextBox("Jutt12345678@", loginpassword);

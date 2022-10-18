@@ -452,6 +452,7 @@
     <Compile Include="PageObjectModel\BaseClass\BaseClass.cs" />
     <Compile Include="PageObjectModel\ContactUs\ContactUsClass.cs" />
     <Compile Include="PageObjectModel\ContactUs\ContactUsTestCase.cs" />
+    <Compile Include="PageObjectModel\ExtentReport\ExtenReport.cs" />
     <Compile Include="PageObjectModel\LogInPage\LogInPage.cs" />
     <Compile Include="PageObjectModel\LogInPage\LogInPageTestCase.cs" />
     <Compile Include="PageObjectModel\PlaceOrder\AddToCart.cs" />

@@ -15,7 +15,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
     public class Homepage : CommonMethodClass
     {
         //Men Section
-        By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
+      
         By men = By.XPath("/html/body/div[2]/div[1]/div/div[2]/nav/ul/li[3]/a/span[2]");
         By top = By.XPath("/html/body/div[2]/div[1]/div/div[2]/nav/ul/li[3]/ul/li[1]/a/span[2]");
         By teens = By.XPath("/html/body/div[2]/div[1]/div/div[2]/nav/ul/li[3]/ul/li[1]/ul/li[3]/a/span");
@@ -134,7 +134,6 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
         }
         public void Move_ToStark_Item()
         {
-            Is_HomePage_visible();
             MoveToMen();
             MoveToMenTop();
             StarkItem();

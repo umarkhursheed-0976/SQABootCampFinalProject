@@ -15,9 +15,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
     public class SignUp : CommonMethodClass
     {
         //all webpage elements 
-        By Sin = By.LinkText("Sign In");
-        //varify 'New Customers' is visible
-        By register = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[2]/div[2]/div/div/a/span");
+        
         By Sup = By.LinkText("Create an Account");
         By firstname = By.Id("firstname");
         By lastname = By.Id("lastname");
@@ -28,10 +26,6 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
         By createaccount = By.XPath("/html/body/div[2]/main/div[3]/div/form/div/div[1]/button/span");
         //Save Address Book information
         By addressbook = By.XPath("/html/body/div[2]/main/div[2]/div[2]/div/div[2]/ul/li[6]/a");
-        By company = By.Id("company");
-        By street = By.Id("street_1");
-        By city = By.Name("city");
-        By phone = By.Name("telephone");
         By dropDownlist = By.Id("region_id");
         By zip = By.Id("zip");
         By country = By.Id("zip");
@@ -48,18 +42,34 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
         By saveinfo = By.XPath("/html/body/div[2]/main/div[2]/div[1]/form/div/div[1]/button/span");
         By signout = By.XPath("//button[@data-action='customer-menu-toggle']");
         By clicksignout = By.XPath("/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[3]/a");
-        By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
+        By createCustomerAccountVisible = By.XPath("/html/body/div[2]/main/div[1]/h1/span");
+        By signInAsUserVisible = By.XPath("/html/body/div[2]/header/div[1]/div/ul/li[1]/span");
+        //
+        //varify 'New Customers' is visible
 
+        By isNewCustomerShowing = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[2]/div[1]/strong");
 
+        public void Verify_HomePage_Visible()
+        {
+            //Verify that home page is visible successfully
+            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
+            Sleep(2);
+        }
         //operational methods
         public void ClickSignUpLink()
         {           
-            Find_Elements_and_Validate(Sin);
-            clickItems(Sin);
-            //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
+            Find_Elements_and_Validate(signin);
+            clickItems(signin);
+        }
+        public void Verify_New_Customer_Visible()
+        {
+            //implicit wait
+            Implicitwait(10);
             //varify 'New Customers' is visible
-            GetElementText_And_Verify_Visibilit("New Customers", register);
+            GetElementText_And_Verify_Visibilit("New Customers", isNewCustomerShowing);
+        }
+        public void Click_CreateAn_Account()
+        {
             Find_Elements_and_Validate(Sup);
             clickItems(Sup);
         }
@@ -106,31 +116,33 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
             //set texts into text box
             SetTextIntoTextBox(cpas, Confirmpassword);
         }
-        public void ClickCreateA()
+        public void ClickCreateAccount()
         {
             //validate textbox
             Find_Elements_and_Validate(createaccount);
             //set texts into text box
             WaitforElement(createaccount);
             clickItems(createaccount);
-            //Verify that Account is created visible successfully
-            GetElementText_And_Verify_Visibilit("My Account",ele);
-            //Verify 'New User Signup!' is visible
-            GetElementText_And_Verify_Visibilit("Welcome, saad umar!", element);
+            Sleep(5);
+
         }
-        public void AddressBook()
+        public void Verify_Account_Created()
         {
-            Find_Elements_and_Validate(addressbook);
-            clickItems(addressbook);
-            SetTextIntoTextBox("Contour Software house pvt ltd.",company);
-            SetTextIntoTextBox("03086065776",phone);
-            SetTextIntoTextBox("PO 765,California",street);
-            SetTextIntoTextBox("New York",city);
-            SelectDropDownItems(dropDownlist);
-            SetTextIntoTextBox("76566", zip);
-            SelectDropDownItems(country);
-            clickItems(saveaddress);
+            //Verify that Account is created visible successfully
+            GetElementText_And_Verify_Visibilit("My Account", ele);
         }
+        public void Verify_SignIn_As_New_User_Visible()
+        {
+            //Verify that 'Logged in as username' is visible
+            GetElementText_And_Verify_Visibilit("Welcome, Saad Umar!", signInAsUserVisible);
+        }
+        public void Verify_Create_Custome_Account_Visible()
+        {
+            //verify 'Create New Customer Account' is visible
+            GetElementText_And_Verify_Visibilit("Create New Customer Account", createCustomerAccountVisible);
+        }
+     
+       
         //public void EditAccountInfo()
         //{
         //    Find_Elements_and_Validate(accountinfo);
@@ -153,28 +165,102 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
         //}
         public void SignOut()
         {
-           
             clickItems(signout);
             Sleep(2);
             Find_Elements_and_Validate(clicksignout);
             clickItems(clicksignout);
             Sleep(7);
-
             GetElementText_And_Verify_Visibilit("Default welcome msg!", element);
         }
-        public void signup(string fname, string lname, string mail, string pass, string cpass)
+        public void Invalidsignup(string fname, string lname, string mail, string pass, string cpass)
         {
-            this.ClickSignUpLink();
-            this.SetFirstName(fname);
-            this.SetlastName(lname);
-            this.CheckBox();
-            this.SetMail(mail);
-            this.SetPassword(pass);
-            this.ConfirmPassword(cpass);
-            this.ClickCreateA();
-            AddressBook();
-      //      EditAccountInfo();
+            Verify_HomePage_Visible();
+            ClickSignUpLink();
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            Verify_Create_Custome_Account_Visible();
+            SetFirstName(fname);
+            SetlastName(lname);
+            CheckBox();
+            SetMail(mail);
+            SetPassword(pass);
+            ConfirmPassword(cpass);
+            ClickCreateAccount();
+        
+        }
+        public void SignUp_With_Existing_User(string fname, string lname, string mail, string pass, string cpass)
+        {
+            Verify_HomePage_Visible();
+            ClickSignUpLink();
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            Verify_Create_Custome_Account_Visible();
+            SetFirstName(fname);
+            SetlastName(lname);
+            CheckBox();
+            SetMail(mail);
+            SetPassword(pass);
+            ConfirmPassword(cpass);
+            ClickCreateAccount();
+                   }
+        public void SignUp_With_new_User(string fname, string lname, string mail, string pass, string cpass)
+        {
+            Verify_HomePage_Visible();
+            ClickSignUpLink();
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            Verify_Create_Custome_Account_Visible();
+            SetFirstName(fname);
+            SetlastName(lname);
+            CheckBox();
+            SetMail(mail);
+            SetPassword(pass);
+            ConfirmPassword(cpass);
+            ClickCreateAccount();
+            Verify_Account_Created();
+            Verify_SignIn_As_New_User_Visible();
             SignOut();
+        
+        }
+        public void Click_SignUp_without_Empty_Fields()
+        {
+            Verify_HomePage_Visible();
+            ClickSignUpLink();
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            ClickCreateAccount();
+        }
+
+        public void SignUp_While_Addto_WishList(string fname, string lname, string mail, string pass, string cpass)
+        {
+        
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            Verify_Create_Custome_Account_Visible();
+            SetFirstName(fname);
+            SetlastName(lname);
+            CheckBox();
+            SetMail(mail);
+            SetPassword(pass);
+            ConfirmPassword(cpass);
+            ClickCreateAccount();
+        }
+        public void SignUp_Before_CheckOut(string fname, string lname, string mail, string pass, string cpass)
+        {
+            Verify_HomePage_Visible();
+            ClickSignUpLink();
+            Verify_New_Customer_Visible();
+            Click_CreateAn_Account();
+            Verify_Create_Custome_Account_Visible();
+            SetFirstName(fname);
+            SetlastName(lname);
+            CheckBox();
+            SetMail(mail);
+            SetPassword(pass);
+            ConfirmPassword(cpass);
+            ClickCreateAccount();
+            Verify_Account_Created();
+            Verify_SignIn_As_New_User_Visible();
 
         }
     }

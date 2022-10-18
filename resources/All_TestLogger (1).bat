@@ -3,9 +3,9 @@ ECHO Demo Automation Executed Started.
 
 
 
-set dllpath=C:\Users\raees\source\repos\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\bin\Debug\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed).dll
-set trxerpath=C:\Users\raees\source\repos\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\bin\Debug\
-set TestSummaryReport=C:\Users\raees\source\repos\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\TestSummaryReport
+set dllpath=C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll
+set trxerpath=C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\
+set TestSummaryReport=C:\Users\raees\source\repos\SQABootCampFinalProject\TestSummaryReport
 
 FOR /f %%a IN ('WMIC OS GET LocalDateTime ^| FIND "."') DO SET DTS=%%a
 SET filename=%testcategory%_%DTS:~0,4%%DTS:~4,2%%DTS:~6,2%%DTS:~8,2%%DTS:~10,2%%DTS:~12,2%

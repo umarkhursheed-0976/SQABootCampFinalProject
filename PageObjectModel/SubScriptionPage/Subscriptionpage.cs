@@ -16,8 +16,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.HomePage
     {
         By newsletter = By.Id("newsletter");
         By cilckbtn = By.XPath("/html/body/div[2]/footer/div/div[1]/div[2]/form/div[2]/button/span");
-        By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
-        By subscibe = By.XPath("/html/body/div[2]/footer/div/div[1]/div[2]/form/div[2]/button/span");
+        By ClicksubScribe = By.XPath("/html/body/div[2]/footer/div/div[1]/div[2]/form/div[2]/button/span");
         By message1 = By.XPath("/html/body/div[2]/main/div[2]/div[2]/div/div/div");
         By message2 = By.XPath("/html/body/div[2]/footer/div/div[1]/div[2]/form/div[1]/div/label/div");
 
@@ -28,9 +27,10 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.HomePage
             //scroll to footer
             Scroll_To_Bottom();
             //Verify text 'SUBSCRIPTION'
-            GetElementText_And_Verify_Visibilit("Subscribe", subscibe);
+            GetElementText_And_Verify_Visibilit("Subscribe", ClicksubScribe);
             SetTextIntoTextBox(email,newsletter);
             clickItems(cilckbtn);
+            Sleep(5);
             // Verify success message 'Thank you for your subscription.' is visible
             GetElementText_And_Verify_Visibilit("Thank you for your subscription.", message1);
         }
@@ -41,7 +41,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.HomePage
             //scroll to footer
             Scroll_To_Bottom();
             //Verify text 'SUBSCRIPTION'
-            GetElementText_And_Verify_Visibilit("Subscribe", subscibe);
+            GetElementText_And_Verify_Visibilit("Subscribe", ClicksubScribe);
             SetTextIntoTextBox(email, newsletter);
             clickItems(cilckbtn);
             Sleep(6);

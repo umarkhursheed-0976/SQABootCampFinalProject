@@ -10,15 +10,16 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter.Configuration;
 using AventStack.ExtentReports.Reporter;
 using System.IO;
+using SQABootCampFinalProject.PageObjectModel.ExtentClass;
 
 namespace SQABootCampFinalProject.PageObjectModel.BaseClass
 {
 
     [TestClass]
-    public class CommonMethodClass
+    public class CommonMethodClass: ExtenReport
     {
+
         //Common Locators at add to cart page
-        public By isAtomicEndurancevisible = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[1]/h1/span");
         //size  
         public By xs = By.Id("option-label-size-143-item-166");
         public By s = By.Id("option-label-size-143-item-167");
@@ -40,6 +41,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         public By quantity = By.Id("qty");
         //add atomic endurance item into cart
         public By addtocartt = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[4]/form/div[2]/div/div/div[2]/button/span");
+    public By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
 
         public By addtowishlist = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[5]/div/a[1]/span");
         public By addtocomparelis = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[5]/div/a[2]/span");
@@ -48,20 +50,16 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         public By street = By.Name("street[0]");
         public By city = By.Name("city");
         public By phone = By.Name("telephone");
+        //login/signup
+        public By signin = By.LinkText("Sign In");
 
 
         //log4net report
         public static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        //ExtentReport
 
-        public static ExtentReports extentReport;
-        public static ExtentTest exParentTest;
-        public static ExtentTest exChildTest;
-        public static string dirpath;
+       
 
-        public static IWebDriver driver;
-        //common methods
         public static void SetUpApplication()
         {
             ChromeOptions option = new ChromeOptions();
@@ -108,14 +106,17 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             //}
 
         }
-        public TestContext TestContext { get; set; }
+        // Generate ExtentReport
+       
 
-        [ClassInitialize]
+        [AssemblyInitialize]
         public static void GetTestContext(TestContext test)
         {
             LogReport("TestReport");
+
         }
-        [ClassCleanup]
+
+        [AssemblyCleanup]
         public static void ClassCleanUp()
         {
             extentReport.Flush();
@@ -124,38 +125,22 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         [TestInitialize()]
         public void GetTestName()
         {
-
             Console.WriteLine(TestContext.TestName);
             LogReport(TestContext.TestName);
         }
 
-        //   [TestCleanup()]
+        [TestCleanup()]
         public void TestClean()
         {
             driver.Close();
         }
-        public static void LogReport(string testcase)
-        {
-            extentReport = new ExtentReports();
-            dirpath = @"..\..\TestExecutionReports\" + '_' + testcase;
-
-            ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(dirpath);
-
-            htmlReporter.Config.Theme = Theme.Standard;
-
-            extentReport.AttachReporter(htmlReporter);
-
-        }
+        //common methods
         public void TakeScreenShot(Status status, string stepDetail)
         {
-            string path = "C:\\Users\\raees\\source\\repos\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\SQABOOTCAUMP01_FINAL_PROJECT(Umar_Khursheed)\\ScreenShoots\\ScreenShoots" + DateTime.Now.ToString("yyyyMMddHHmmss");
-            //            Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
-            //            image_username.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
-            //ExtentReport.exChildTest.Log(status, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(path + ".png").Build());
+            string path = "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\ScreenShoots\\ScreenShoots" + DateTime.Now.ToString("yyyyMMddHHmmss");
             Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
             image_username.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
-            exChildTest.Log(status, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(path + ".png").Build());
-            LogReport("");
+            ExtenReport.exChildTest.Log(status, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(path + ".png").Build());
         }
         public void Quit()
         {
@@ -198,16 +183,33 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         }
         public void Scroll_To_Element(By path)
         {
-            IWebElement element = driver.FindElement(path);
-            //scroll to element using javascript
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+            try
+            {
+                IWebElement element = driver.FindElement(path);
+                //scroll to element using javascript
+                ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+                exChildTest.Log(Status.Pass, "Scroll To Element");
+            }
+            catch (Exception ex)
+            {
+                exChildTest.Log(Status.Fail, "Element not found" + ex.ToString());
+            }
+
         }
         public void Scroll_To_Bottom()
         {
+            try
+            {
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)driver);
+                js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
+                Sleep(3);
+                exChildTest.Log(Status.Pass, "Scroll To Bottom Successfully");
 
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)driver);
-            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-            Sleep(3);
+            }
+            catch (Exception ex)
+            {
+                exChildTest.Log(Status.Fail, "Scroll to Bottom Failed" + ex.ToString());
+            }
         }
         public void Clear(By path)
         {
@@ -218,9 +220,14 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             }
             catch (Exception ex)
             {
-                exChildTest.Log(Status.Fail, "no text into textbox" + ex.ToString());
+                exChildTest.Log(Status.Fail, "Failed! to clear text from textbox" + ex.ToString());
             }
 
+        }
+        public void Press_Space(By path)
+        {
+            IWebElement ele = driver.FindElement(path);
+            ele.SendKeys(Keys.Space);
         }
         public void Implicitwait(int i)
         {
@@ -272,13 +279,12 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         {
             try
             {
-                driver.FindElement(path).SendKeys(data);
-
-                TakeScreenShot(Status.Pass, "Enter Tesxt");
+                WaitforElement(path).SendKeys(data);
+               TakeScreenShot(Status.Pass, "Text successfully Set into TextBox");
             }
             catch (Exception ex)
             {
-                TakeScreenShot(Status.Fail, "Enter Text: " + ex.ToString());
+             TakeScreenShot(Status.Fail, "Failed to Enter text into TextBox: " + ex.ToString());
             }
 
         }
@@ -287,24 +293,29 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             string text;
             try
             {
-                text = driver.FindElement(path).Text;
+                //  text = driver.FindElement(path).Text;
+                text = WaitforElement(path).Text;
+
                 Assert.AreEqual(elementtext, text);
-                exChildTest.Log(Status.Pass, "Validation OK, Test Passed");
+                exChildTest.Log(Status.Pass, "Validation OK");
             }
             catch
             {
                 try
                 {
-                    text = driver.FindElement(path).GetAttribute("value");
+                    //  text = driver.FindElement(path).GetAttribute("value");
+                     text = WaitforElement(path).GetAttribute("value");
+
                     Assert.AreEqual(text, elementtext);
-                    exChildTest.Log(Status.Pass, "Validation OK, Test Passed");
+                    exChildTest.Log(Status.Pass, "Validation OK");
 
                 }
                 catch
                 {
-                    text = driver.FindElement(path).GetAttribute("innerHTML");
+                    //   text = driver.FindElement(path).GetAttribute("innerHTML");
+                    text = WaitforElement(path).GetAttribute("innerHTML");
                     Assert.AreEqual(text, elementtext);
-                    exChildTest.Log(Status.Fail);
+                    exChildTest.Log(Status.Fail,"Validation failed");
 
                 }
             }
@@ -353,7 +364,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                 var sorter1 = driver.FindElement(path);
                 var slctbyindex = new SelectElement(sorter1);
                 slctbyindex.SelectByIndex(2);
-                exChildTest.Log(Status.Pass, "Successfully select element from drop down lis");
+                exChildTest.Log(Status.Pass, "Successfully select element from drop down list");
             }
             catch (Exception ex)
             {
@@ -433,6 +444,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         }
         public void Perform_Action(By path)
         {
+
             IWebElement element = driver.FindElement(path);
             //Action Class in Selenium is a built-in feature provided by the selenium for handling keyboard and mouse events. 
             Actions action = new Actions(driver);
@@ -444,11 +456,21 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         }
         public void AscDescOrder(By path)
         {
-            IWebElement ord = driver.FindElement(path);
-            ord.Click();
-            //Thread.Sleep(TimeSpan.FromSeconds(2));
-            IWebElement ord1 = driver.FindElement(path);
-            ord1.Click();
+            try
+            {
+                IWebElement ord = driver.FindElement(path);
+                ord.Click();
+                //Thread.Sleep(TimeSpan.FromSeconds(2));
+                IWebElement ord1 = driver.FindElement(path);
+                ord1.Click();
+                exChildTest.Log(Status.Pass, "Successfully,Move into Asc and Desc order ");
+
+            }
+            catch (Exception ex)
+            {
+                exChildTest.Log(Status.Fail, "Asc ,Desc failed" + ex.ToString());
+            }
+
         }
         public bool isElementTextField(By path)
         {
