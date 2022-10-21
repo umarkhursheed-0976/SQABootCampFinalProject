@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using SQABootCampFinalProject.PageObjectModel.BaseClass;
 using System.IO;
 using SQABootCampFinalProject.PageObjectModel.ExtentClass;
+using OpenQA.Selenium.Edge;
+using SQABootCampFinalProject.PageObjectModel.Browser;
 
 namespace SQABootCampFinalProject.PageObjectModel.LogInPage
 
@@ -27,13 +29,13 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
 
         public void LoginWithValidcredentials()
         {
-          exParentTest = extentReport.CreateTest(TestContext.TestName);
+            BrowserClass.SetUpApplication("Chrome");
+            exParentTest = extentReport.CreateTest(TestContext.TestName);
             exChildTest = exParentTest.CreateNode("Login");
-            SetUpApplication();
             string url = TestContext.DataRow["url"].ToString();
             string email = TestContext.DataRow["email"].ToString();
-            string pass = TestContext.DataRow["password"].ToString();        
-            CommonMethodClass.driver.Url = url;
+            string pass = TestContext.DataRow["password"].ToString();
+            BrowserClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.LogIn_Valid(email, pass);
              
@@ -42,13 +44,13 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.xml", "LoginWithInValidcredentials", DataAccessMethod.Sequential)]
         public void LoginWithInvalidCredentials()
         {
+            BrowserClass.SetUpApplication("Chrome");
             exParentTest = extentReport.CreateTest(TestContext.TestName);
             exChildTest = exParentTest.CreateNode("Login");
-            SetUpApplication();
-            string url = TestContext.DataRow["url"].ToString();
+           string url = TestContext.DataRow["url"].ToString();
             string email = TestContext.DataRow["email"].ToString();
             string pass = TestContext.DataRow["password"].ToString();
-            CommonMethodClass.driver.Url = url;
+            BrowserClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.LogIn_Invalid(email, pass);
          
@@ -56,15 +58,15 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
         [TestMethod, TestCategory("LogIn")]    
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\PageObjectModel\\LogInPage\\LogIn.csv", "LogIn#csv", DataAccessMethod.Sequential)]
 
-        public void LogOut()
+        public void Verify_LogOut_Functionality()
         {
+            BrowserClass.SetUpApplication("Edge");
             exParentTest = extentReport.CreateTest(TestContext.TestName);
-            exChildTest = exParentTest.CreateNode("Login");
-            SetUpApplication();
+            exChildTest = exParentTest.CreateNode("LogOut");
             string url = TestContext.DataRow[0].ToString();
             string email = TestContext.DataRow[1].ToString();
             string pass = TestContext.DataRow[2].ToString();
-            CommonMethodClass.driver.Url = url;
+            BrowserClass.driver.Url = url;
             LogIn obj = new LogIn();
             obj.SignOut(email, pass);
            

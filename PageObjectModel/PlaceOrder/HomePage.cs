@@ -34,12 +34,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
          By clickphoebe = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[3]/ol/li[6]/div/a/span/span/img");
 
 
-        public void Is_HomePage_visible()
-        {
-            //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
-        }
-
+        
         //Men Section
         public void MoveToMen()
         {
@@ -113,20 +108,20 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1
         }
         public void Click_PhobeZipper_Item()
         {
-            Perform_Action(clickphoebe);
-            //  Find_Elements_and_Validate(element4);
+            Implicitwait(10);
+         //   Perform_Action(clickphoebe);
             clickItems(clickphoebe);
         }
         public void MoveToAtomicEnduranceItem()
         {
-            Is_HomePage_visible();
+            Verify_HomePage_Visible();
             MoveToMen();
         MoveToMenTop();
            MoveToTeenSection();
         }
         public void MoveToIngridRunningItem()
         {
-            Is_HomePage_visible();
+            Verify_HomePage_Visible();
             MoveToWomen();
             MoveToWomenTop();
             MoveToJacketSection();

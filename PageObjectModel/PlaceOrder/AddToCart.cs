@@ -39,7 +39,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
 
         public void Is_Atomic_RunningTee_Visible()
         {
-            ExplicitWait(10);
+            Fluent_wait(10);
             //verify 'Atomic Endurance Running Tee (Crew-Neck)'is visible
             GetElementText_And_Verify_Visibilit("Atomic Endurance Running Tee (Crew-Neck)", isAtomicEndurancevisible);
         }
@@ -55,7 +55,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Select_Size()
         {
-
+         
             Find_Elements_and_Validate(xs);
             clickItems(xs);
             Sleep(2);
@@ -74,8 +74,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Select_Black_Blue_Red_Color()
         {
-            //impliocit wait
-            Implicitwait(20);
+            //fluent wait
+            Fluent_wait(10);
             Find_Elements_and_Validate(red);
             clickItems(red);
             Sleep(3);
@@ -90,8 +90,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Select_Orange_Red_White_Color()
         {
-            //implicit wait
-            Implicitwait(20);
+            //fluent wait
+            Fluent_wait(10);
             Find_Elements_and_Validate(orange);
             clickItems(orange);
             Sleep(3);
@@ -135,6 +135,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             //implicitnwait
             Implicitwait(40);
             clickItems(cartitems);
+       
         }
         
         public void AtomicEndurance_AddIntoCart_Message_Showing()
@@ -250,6 +251,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Select_ItemQuantity();
             AddToCart();
             Autumn_Pullie_Added_Into_ShoppingCart_Showing();
+            View_and_Edit_CartItems();
         }
         
       

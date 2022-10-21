@@ -2,12 +2,12 @@
 <users>
 	<LoginWithValidcredentials>
 		<url>https://magento.softwaretestingboard.com</url>
-		<email>saadumar87649023165627634766776@gmail.com</email>
+		<email>saadumar12345609766@gmail.com</email>
 		<password>Jutt12345678@</password>
 	</LoginWithValidcredentials>
 	<LoginWithInValidcredentials>
 		<url>https://magento.softwaretestingboard.com</url>
-		<email>saadumar87649023165627634766776@gmail.com</email>
+		<email>saadumar12345609766@gmail.com</email>
 		<password>fgdfjhhkgk</password>
 	</LoginWithInValidcredentials>
 </users>

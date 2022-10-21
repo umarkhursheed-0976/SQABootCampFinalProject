@@ -1,10 +1,13 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
+//[assembly: Parallelize(Workers = 22, Scope = Microsoft.VisualStudio.TestTools.UnitTesting.ExecutionScope.MethodLevel)]
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+//[assembly:Parallelize(Workers =20,Scope =Microsoft.VisualStudio.TestTools.UnitTesting.ExecutionScope.ClassLevel)]
 [assembly: AssemblyTitle("SQABootCampFinalProject")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyConfiguration("")]                                   
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SQABootCampFinalProject")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]

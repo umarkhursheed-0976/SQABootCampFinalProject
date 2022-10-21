@@ -34,8 +34,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         public void Add_reviews()
         {
             clickItems(reviews);
-            Scroll_To_Element(rating);
-            clickItems(rating);
+            //Scroll_To_Element(rating);
+            //clickItems(rating);
             SetTextIntoTextBox("Umar", nickname);
             SetTextIntoTextBox("I think it should give best quality", summary);
             SetTextIntoTextBox("Looking good", reviewbox);

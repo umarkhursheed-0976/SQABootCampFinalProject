@@ -12,32 +12,40 @@ using System.IO;
 using OpenQA.Selenium;
 using System.Xml.Linq;
 using AventStack.ExtentReports.Core;
+using MongoDB.Bson;
+using System.ComponentModel.Composition.Primitives;
 
 namespace SQABootCampFinalProject.PageObjectModel.ExtentClass
 {
     [TestClass]
     public class ExtenReport
     {
+        public static IWebDriver driver;
+
         public static ExtentReports extentReport;
         public static ExtentTest exParentTest;
         public static ExtentTest exChildTest;
         public static string dirpath;
         public TestContext TestContext { get; set; }
-        public static IWebDriver driver;
+
         //public ExtenReport(string path, bool f)
         //{
-        //    string extentreportPath = path;
-        //    f = false;
+        //   string extentreportPath = path;
+        //   f = false;
         //}
         public static void LogReport(string testcase)
         {
-            extentReport = new ExtentReports();
             dirpath = @"..\..\TestExecutionReports\" + '_' + testcase;
-           // ExtenReport obj = new ExtenReport(dirpath, false);
+            extentReport = new ExtentReports();
+            //    ExtenReport extent = new ExtenReport(dirpath, false);
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(dirpath);
             htmlReporter.Config.Theme = Theme.Standard;
             extentReport.AttachReporter(htmlReporter);
             
+
+
+
+
 
 
 

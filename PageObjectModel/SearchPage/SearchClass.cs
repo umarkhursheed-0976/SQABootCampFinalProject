@@ -26,11 +26,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         By searchitem3 = By.XPath("/html/body/div[2]/main/div[3]/div[1]/div[2]/div[2]/ol/li[1]/div/div/strong/a");
 
 
-        public void Verify_HomePage_Visible()
-        {
-            //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
-        }
+      
         public void Verify_All_Products_Related_Search_Visible()
         {
             // Verify all the products related to search are visible
@@ -61,8 +57,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         { 
             SetTextIntoTextBox(text, search);
             Sleep(2);
-            Press_Space(search);
-            Sleep(3);
+          Press_Space(search);
+            Sleep(2);
             clickItems(item1);         
         }
         
@@ -72,8 +68,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
        
             SetTextIntoTextBox(text, search);
             Sleep(2);
-            Press_Space(search);
-            Sleep(3);
+                Press_Space(search);
+            Sleep(2);
             clickItems(item2);
     
         }
@@ -82,8 +78,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         {   
             SetTextIntoTextBox(text, search);
             Sleep(2);
-            Press_Space(search);
-            Sleep(3);
+           Press_Space(search);
+       
+            Sleep(2);
             clickItems(item3);
         }
    
@@ -98,6 +95,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         
         public void Suggestion_Items(string text1,string text2,string text3)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
             Search_Item1(text1);
             Verify_Search_Product_Hero_Hoodie_Showing();
@@ -116,6 +114,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_
         }
         public void Search_With_InvalidData(string text1, string text2, string text3)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
             Search_Item1(text1);
             Click_search_Button();

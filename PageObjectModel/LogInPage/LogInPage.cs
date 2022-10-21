@@ -30,16 +30,11 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
         By element = By.XPath("/html/body/div[2]/header/div[1]/div/ul/li[1]/span");
         By isCustomerLogInVisible = By.XPath("/html/body/div[2]/main/div[1]/h1/span");
         By errormessage = By.XPath("/html/body/div[2]/main/div[2]/div[2]/div/div/div");
-        public void Verify_HomePage_Visible()
-        {
-            //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
-            Sleep(2);
-        }
+        
         //click to sign in button
         public void ClickSignInLink()
         {
-            Implicitwait(10);
+            Fluent_wait(10);
             Find_Elements_and_Validate(signin);
             clickItems(signin);
           
@@ -57,7 +52,7 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             //validate text box
             Find_Elements_and_Validate(email);
             //set texts into text box
-            Implicitwait(10);
+            Fluent_wait(10);
             SetTextIntoTextBox(uname, email);
        
         }
@@ -67,7 +62,7 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
           
             //validate text box
             Find_Elements_and_Validate(password);
-            Implicitwait(10);
+            Fluent_wait(10);
             SetTextIntoTextBox(pass, password);
           
         }
@@ -76,13 +71,15 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
         {
             
             Find_Elements_and_Validate(submit);
-            Implicitwait(10);
+            Fluent_wait(10);
             clickItems(submit);
         }
         public void Verify_SignIn_As_New_User_Visible()
         {
             //Verify that 'Logged in as username' is visible
             GetElementText_And_Verify_Visibilit("Welcome, Saad Umar!", element);
+            Sleep(2);
+            TakeScreenShot(Status.Pass, "SignInAsNewUserVisible");
         }
         public void Verify_Error_Message_Showing_With_Invalid_credentials()
         {
@@ -97,6 +94,7 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
 
         public void LogIn_Valid(string username, string password)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
             ClickSignInLink();
             Verify_Customer_LogIn_Visible();
@@ -105,10 +103,14 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             ClickLogin();
             Sleep(4);
             Verify_SignIn_As_New_User_Visible();
+
+
         }
         public void LogIn_Invalid(string username, string password)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
+
             ClickSignInLink();
             Verify_Customer_LogIn_Visible();
             SetUsername(username);
@@ -116,10 +118,14 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             ClickLogin();
             Sleep(4);
             Verify_Error_Message_Showing_With_Invalid_credentials();
+            TakeScreenShot(Status.Pass, "Error message showing");
+
         }
         public void SignOut(string username, string password)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
+
             ClickSignInLink();
             Verify_Customer_LogIn_Visible();
             SetUsername(username);
@@ -130,8 +136,10 @@ namespace SQABootCampFinalProject.PageObjectModel.LogInPage
             Sleep(2);
             Find_Elements_and_Validate(clicksignout);
             clickItems(clicksignout);
-            Sleep(7);
-            Verify_Default_Msg_Visible();
+            Sleep(10);
+           Verify_Default_Msg_Visible();
+            TakeScreenShot(Status.Pass, "home page");
+
         }
     }
 }

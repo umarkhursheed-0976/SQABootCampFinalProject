@@ -11,15 +11,18 @@ using AventStack.ExtentReports.Reporter.Configuration;
 using AventStack.ExtentReports.Reporter;
 using System.IO;
 using SQABootCampFinalProject.PageObjectModel.ExtentClass;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.DevTools.V104.Database;
 
 namespace SQABootCampFinalProject.PageObjectModel.BaseClass
 {
 
-    [TestClass]
-    public class CommonMethodClass: ExtenReport
+   // [TestClass]
+    public class CommonMethodClass : ExtenReport
     {
 
-        //Common Locators at add to cart page
+        //Common Locators
         //size  
         public By xs = By.Id("option-label-size-143-item-166");
         public By s = By.Id("option-label-size-143-item-167");
@@ -41,7 +44,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         public By quantity = By.Id("qty");
         //add atomic endurance item into cart
         public By addtocartt = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[4]/form/div[2]/div/div/div[2]/button/span");
-    public By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
+        public By hompagevisibility = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/a/span/span[1]");
 
         public By addtowishlist = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[5]/div/a[1]/span");
         public By addtocomparelis = By.XPath("/html/body/div[2]/main/div[2]/div/div[1]/div[5]/div/a[2]/span");
@@ -53,102 +56,43 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         //login/signup
         public By signin = By.LinkText("Sign In");
 
-
         //log4net report
-        public static readonly log4net.ILog log =
-            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-       
-
-        public static void SetUpApplication()
-        {
-            ChromeOptions option = new ChromeOptions();
-            option.AddArguments("--start-maximized");
-            option.AddArguments("disable-pop-up-blocking");
-            option.AddArguments("disable-extensions");
-            driver = new ChromeDriver(option);
-            //          exParentTest.Log(Status.Info, "Chrome Browser Launched");
-            driver.Url = "https://magento.softwaretestingboard.com";
-            //     exParentTest.Log(Status.Info, "Apllication URL opened Successfully");
-
-            //if (Browser.Equals("chrome"))
-            //{
-            //    ChromeOptions option = new ChromeOptions();
-            //    option.AddArguments("--start-maximized");
-
-            //    option.AddArguments("disable-pop-up-blocking");
-            //    option.AddArguments("disable-extensions");
-            //    driver = new ChromeDriver(option);
-            //    driver.Url = "https://magento.softwaretestingboard.com";
-
-            //}
-            //else if (Browser.Equals("Edge"))
-
-            //{
-            //    EdgeOptions edgeOptions = new EdgeOptions();
-            //    edgeOptions.AddArguments("--start-maximized");
-
-            //    edgeOptions.AddArguments("disable-pop-up-blocking");
-            //    edgeOptions.AddArguments("disable-extensions");
-            //    driver = new EdgeDriver(edgeOptions);
-            //    driver.Url = "https://magento.softwaretestingboard.com";
-            //}
-            //else if (Browser.Equals("FireFox"))
-            //{
-            //    FirefoxOptions firefoxOptions = new FirefoxOptions();
-
-            //    firefoxOptions.AddArguments("--start-maximized");
-
-            //    firefoxOptions.AddArguments("disable-pop-up-blocking");
-            //    firefoxOptions.AddArguments("disable-extensions");
-            //    driver = new FirefoxDriver(firefoxOptions);
-            //    driver.Url = "https://magento.softwaretestingboard.com";
-            //}
-
-        }
+        public static readonly log4net.ILog log =log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // Generate ExtentReport
-       
+
 
         [AssemblyInitialize]
-        public static void GetTestContext(TestContext test)
-        {
-            LogReport("TestReport");
+    public static void GetTestContext(TestContext test)
+    {
+        LogReport("TestReport");
 
-        }
+    }
 
-        [AssemblyCleanup]
-        public static void ClassCleanUp()
-        {
-            extentReport.Flush();
-        }
+    [AssemblyCleanup]
+    public static void ClassCleanUp()
+    {
+        extentReport.Flush();
+    }
 
-        [TestInitialize()]
-        public void GetTestName()
-        {
-            Console.WriteLine(TestContext.TestName);
-            LogReport(TestContext.TestName);
-        }
+    [TestInitialize()]
+    public void GetTestName()
+    {
+        Console.WriteLine(TestContext.TestName);
+        LogReport(TestContext.TestName);
+    }
 
-        [TestCleanup()]
-        public void TestClean()
-        {
-            driver.Close();
-        }
-        //common methods
-        public void TakeScreenShot(Status status, string stepDetail)
+    [TestCleanup()]
+    public void TestClean()
+    {
+        driver.Close();
+    }
+    //common methods
+    public void TakeScreenShot(Status status, string stepDetail)
         {
             string path = "C:\\Users\\raees\\source\\repos\\SQABootCampFinalProject\\ScreenShoots\\ScreenShoots" + DateTime.Now.ToString("yyyyMMddHHmmss");
             Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
             image_username.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
             ExtenReport.exChildTest.Log(status, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(path + ".png").Build());
-        }
-        public void Quit()
-        {
-            driver.Quit();
-        }
-        public void Close()
-        {
-            driver.Close();
         }
         public void TimeToPageLoad()
         {
@@ -177,9 +121,6 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             var slctbyindex = new SelectElement(element);
             slctbyindex.SelectByIndex(14);
             Thread.Sleep(TimeSpan.FromSeconds(3));
-
-
-
         }
         public void Scroll_To_Element(By path)
         {
@@ -189,10 +130,12 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                 //scroll to element using javascript
                 ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
                 exChildTest.Log(Status.Pass, "Scroll To Element");
+                log.Info("Scroll To Element");
             }
             catch (Exception ex)
             {
                 exChildTest.Log(Status.Fail, "Element not found" + ex.ToString());
+                log.Error("Element not found" + ex.ToString());
             }
 
         }
@@ -204,11 +147,12 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                 js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
                 Sleep(3);
                 exChildTest.Log(Status.Pass, "Scroll To Bottom Successfully");
-
+                log.Info("Scroll To Bottom Successfully");
             }
             catch (Exception ex)
             {
                 exChildTest.Log(Status.Fail, "Scroll to Bottom Failed" + ex.ToString());
+                log.Error("Scroll to Bottom Failed" + ex.ToString());
             }
         }
         public void Clear(By path)
@@ -217,10 +161,12 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             {
                 driver.FindElement(path).Clear();
                 exChildTest.Log(Status.Pass, "Successfully clear text from textbox");
+                log.Info("Successfully clear text from textbox");
             }
             catch (Exception ex)
             {
                 exChildTest.Log(Status.Fail, "Failed! to clear text from textbox" + ex.ToString());
+                log.Error("Failed! to clear text from textbox" + ex.ToString());
             }
 
         }
@@ -231,12 +177,14 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         }
         public void Implicitwait(int i)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(i);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(i);
         }
-        public void ExplicitWait(int w)
+        public void ExplicitWait(int i)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(w));
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+        
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(i));
+                wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            
         }
         public void clickItems(By path)
         {
@@ -244,10 +192,13 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             {
                 driver.FindElement(path).Click();
                 exChildTest.Log(Status.Pass, "Element is clickable");
+                log.Info("Element is clickable");
             }
             catch (Exception ex)
             {
-                exChildTest.Log(Status.Fail, "Element is not clickable/No such element found" + ex.ToString());
+                exChildTest.Log(Status.Fail, "Element is not clickable" + ex.ToString());
+                log.Error("Element is not clickable");
+
             }
 
         }
@@ -262,11 +213,23 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                 IWebElement element = driver.FindElement(path);
                 Assert.AreEqual(element.Enabled, element.Displayed);
                 exChildTest.Log(Status.Pass, "Element found and Validate");
+        log.Info("Element found and Validate");
+
             }
             catch (Exception ex)
             {
                 exChildTest.Log(Status.Fail, "No such element" + ex.ToString());
+                log.Error("Element found and Validate");
+
             }
+        }
+        public void Fluent_wait(int i)
+        {
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
+            /* Setting the timeout in seconds */
+            fluentWait.Timeout = TimeSpan.FromSeconds(i);
+            /* Configuring the polling frequency in ms */
+            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(1000);
         }
         public void Elements_AreNotEqual(By path)
         {
@@ -274,17 +237,19 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
             IWebElement element = driver.FindElement(path);
             Assert.AreNotEqual(element.Enabled, element.Displayed);
         }
-
         public void SetTextIntoTextBox(string data, By path)
-        {
+        { 
             try
             {
                 WaitforElement(path).SendKeys(data);
                TakeScreenShot(Status.Pass, "Text successfully Set into TextBox");
+                log.Info("Text successfully Set into TextBox");
             }
             catch (Exception ex)
             {
              TakeScreenShot(Status.Fail, "Failed to Enter text into TextBox: " + ex.ToString());
+                log.Error("Failed to Enter text into TextBox");
+
             }
 
         }
@@ -298,6 +263,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
 
                 Assert.AreEqual(elementtext, text);
                 exChildTest.Log(Status.Pass, "Validation OK");
+                log.Info("Validation OK");
             }
             catch
             {
@@ -308,7 +274,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
 
                     Assert.AreEqual(text, elementtext);
                     exChildTest.Log(Status.Pass, "Validation OK");
-
+                    log.Info("Validation OK");
                 }
                 catch
                 {
@@ -316,6 +282,7 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                     text = WaitforElement(path).GetAttribute("innerHTML");
                     Assert.AreEqual(text, elementtext);
                     exChildTest.Log(Status.Fail,"Validation failed");
+                    log.Error("Validation failed");
 
                 }
             }
@@ -365,10 +332,12 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
                 var slctbyindex = new SelectElement(sorter1);
                 slctbyindex.SelectByIndex(2);
                 exChildTest.Log(Status.Pass, "Successfully select element from drop down list");
+                log.Info("Successfully select element from drop down list");
             }
             catch (Exception ex)
             {
                 exChildTest.Log(Status.Fail, "No such element found" + ex.ToString());
+                log.Error("No such element found" + ex.ToString());
             }
         }
 
@@ -444,12 +413,28 @@ namespace SQABootCampFinalProject.PageObjectModel.BaseClass
         }
         public void Perform_Action(By path)
         {
+            try
+            {
+                IWebElement element = driver.FindElement(path);
+                //Action Class in Selenium is a built-in feature provided by the selenium for handling keyboard and mouse events. 
+                Actions action = new Actions(driver);
+                action.MoveToElement(element).Perform();
+                exChildTest.Log(Status.Pass, "Action Performed");
+                log.Info("Action Performed");
 
-            IWebElement element = driver.FindElement(path);
-            //Action Class in Selenium is a built-in feature provided by the selenium for handling keyboard and mouse events. 
-            Actions action = new Actions(driver);
-            action.MoveToElement(element).Perform();
+            }  
+            catch (Exception ex)
+            {
+                exChildTest.Log(Status.Fail, "No such element found" + ex.ToString());
+                log.Error("No such element found" + ex.ToString());
+            }
         }
+        public void Verify_HomePage_Visible()
+        {
+            //Verify that home page is visible successfully
+            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
+        }
+
         public void Sleep(int i)
         {
             Thread.Sleep(TimeSpan.FromSeconds(i));

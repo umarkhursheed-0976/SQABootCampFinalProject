@@ -42,6 +42,7 @@ namespace SQABootCampFinalProject.PageObjectModel.AddToCart
         }
         public void Verify_Requested_quantityNot_Awailable_Visible()
         {
+            Sleep(3);
             //verify 'The requested qty is not available'is visible
             GetElementText_And_Verify_Visibilit("The requested qty is not available", errormessage);
         }
@@ -72,7 +73,7 @@ namespace SQABootCampFinalProject.PageObjectModel.AddToCart
         }
         public void Select_Phoebe_Zipper_Color()
         {
-
+         
             clickItems(purple);
         }
         public void AddToCart()
@@ -80,7 +81,7 @@ namespace SQABootCampFinalProject.PageObjectModel.AddToCart
 
             Find_Elements_and_Validate(addtocartt);
             //implicit wait
-            Implicitwait(20);
+            Implicitwait(10);
             clickItems(addtocartt);
             Sleep(5);
         }

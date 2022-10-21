@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
@@ -14,6 +15,9 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
     [TestClass]
     public class SignUp : CommonMethodClass
     {
+        
+
+
         //all webpage elements 
         
         By Sup = By.LinkText("Create an Account");
@@ -49,12 +53,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
 
         By isNewCustomerShowing = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[2]/div[1]/strong");
 
-        public void Verify_HomePage_Visible()
-        {
-            //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
-            Sleep(2);
-        }
+       
         //operational methods
         public void ClickSignUpLink()
         {           
@@ -94,12 +93,14 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
         }
         public void SetMail(string mail)
         {
+
             //validate textbox
             Find_Elements_and_Validate(email);
             GetElementstate(email);
           //  GetElementText(email);
             //set texts into text box
             SetTextIntoTextBox(mail, email);
+
         }
         public void SetPassword(string pas)
         {
@@ -174,6 +175,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
         }
         public void Invalidsignup(string fname, string lname, string mail, string pass, string cpass)
         {
+            //Verify that home page is visible successfully
             Verify_HomePage_Visible();
             ClickSignUpLink();
             Verify_New_Customer_Visible();
@@ -186,7 +188,10 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
             SetPassword(pass);
             ConfirmPassword(cpass);
             ClickCreateAccount();
-        
+            Sleep(7);
+            TakeScreenShot(Status.Pass, "Error message showing");
+
+
         }
         public void SignUp_With_Existing_User(string fname, string lname, string mail, string pass, string cpass)
         {
@@ -202,7 +207,11 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
             SetPassword(pass);
             ConfirmPassword(cpass);
             ClickCreateAccount();
-                   }
+            Sleep(5);
+
+            TakeScreenShot(Status.Pass, "Error message showing");
+
+        }
         public void SignUp_With_new_User(string fname, string lname, string mail, string pass, string cpass)
         {
             Verify_HomePage_Visible();
@@ -220,15 +229,22 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT.PageObjectModel
             Verify_Account_Created();
             Verify_SignIn_As_New_User_Visible();
             SignOut();
-        
+            Sleep(4);
+
+            TakeScreenShot(Status.Pass, "Homepage showing");
+
+
         }
-        public void Click_SignUp_without_Empty_Fields()
+        public void Click_SignUp_with_Empty_Fields()
         {
             Verify_HomePage_Visible();
             ClickSignUpLink();
             Verify_New_Customer_Visible();
             Click_CreateAn_Account();
             ClickCreateAccount();
+            Sleep(5);
+            TakeScreenShot(Status.Pass, "Error message showing");
+
         }
 
         public void SignUp_While_Addto_WishList(string fname, string lname, string mail, string pass, string cpass)

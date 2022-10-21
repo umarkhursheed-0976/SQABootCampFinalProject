@@ -23,9 +23,10 @@ namespace SQABootCampFinalProject.PageObjectModel.ContactUs
 
         public void Contact_Us(string Name, string Email, string Contactno, string Message)
         {
+            
 
             //Verify that home page is visible successfully
-            GetElementText_And_Verify_Visibilit("New Luma Yoga Collection", hompagevisibility);
+            Verify_HomePage_Visible();
             //scroll to bottom
             Scroll_To_Element(contactus);
             //verify elements enable and displayed

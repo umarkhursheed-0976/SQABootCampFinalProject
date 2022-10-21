@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="adf530dd-a289-4b0f-b8a5-e037e09e0807" name="raees@DESKTOP-FCRQ2KL 2022-10-20 09:01:19" runUser="DESKTOP-FCRQ2KL\raees" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2022-10-20T09:01:19.7298940-07:00" queuing="2022-10-20T09:01:19.7298940-07:00" start="2022-10-20T09:00:39.6119231-07:00" finish="2022-10-20T09:03:20.0877185-07:00" />
+  <TestSettings name="default" id="c45dcbe9-a35b-4b66-bc53-2d6c07619812">
+    <Deployment runDeploymentRoot="raees_DESKTOP-FCRQ2KL_2022-10-20_09_01_19" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="b8d99931-78ac-4b59-b899-679fb522f368" testId="89feb9ba-231d-4c50-b074-b1d185236a85" testName="AddItems_into_Cart_With_Valid_Boundries" computerName="DESKTOP-FCRQ2KL" duration="00:01:52.2452102" startTime="2022-10-20T09:00:43.5961031-07:00" endTime="2022-10-20T09:02:36.5438732-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b8d99931-78ac-4b59-b899-679fb522f368">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62480/session/dcbb6aa24e1a120cb239e753fc76fd3d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 36&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="779203ae-88bb-4ace-b65e-33185e2faaed" testId="c5496263-efe1-4eb1-95d3-8bce4c25dc59" testName="Subscription_With_InValid_Email_HomePage (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:46.8099029" startTime="2022-10-20T09:00:43.4484982-07:00" endTime="2022-10-20T09:02:33.0841216-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="779203ae-88bb-4ace-b65e-33185e2faaed">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62488/session/97f5731c89097ed9ffa3b073c62ab492/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 36&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="defbd72c-3ade-4f21-80fc-9730c2b365bb" testId="cfc09bd2-054c-48db-83bd-35c1c0a85836" testName="Verify_Sign_up_new_user_with_valid_Credentials (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:02:02.2658656" startTime="2022-10-20T09:00:43.4125945-07:00" endTime="2022-10-20T09:02:48.5587618-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="defbd72c-3ade-4f21-80fc-9730c2b365bb">
+      <Output>
+        <StdOut>Verify_Sign_up_new_user_with_valid_Credentials</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62492/session/2dc0734fd99fe9c7df4343502b00b0dc/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 83&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="027b7922-8874-4df8-82b2-177adeaff392" testId="0c490b9b-c42a-4eaf-ad1f-5a5db268c090" testName="AddTocart_Without_color_and_Quantity" computerName="DESKTOP-FCRQ2KL" duration="00:01:22.3934225" startTime="2022-10-20T09:00:43.6060764-07:00" endTime="2022-10-20T09:02:06.6916102-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="027b7922-8874-4df8-82b2-177adeaff392">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62486/session/c39d67770836d8272554e31c523263cd/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 73&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0f23452e-749b-42b3-8375-74f1849e08e9" testId="afea1452-cb71-49cf-a39b-1cc7a93b7efb" testName="LoginWithValidcredentials (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:15.5699658" startTime="2022-10-20T09:00:43.4674470-07:00" endTime="2022-10-20T09:02:01.8724917-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f23452e-749b-42b3-8375-74f1849e08e9">
+      <Output>
+        <StdOut>LoginWithValidcredentials</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62493/session/9057e4ed6bcfdaa5dd712cbc4b4dec40/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 32&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bf809ef2-1f4f-4d8f-9e4c-61b83c6c9111" testId="d0530863-e1b7-4a2f-86a1-fb29af339fed" testName="verify_search_with_ValidData_and_Select_Items_From_Suggestion (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:25.6082799" startTime="2022-10-20T09:00:43.4076084-07:00" endTime="2022-10-20T09:02:11.8827519-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf809ef2-1f4f-4d8f-9e4c-61b83c6c9111">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62489/session/6f71b22a807d7e8fa941b781e5a06f88/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 22&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="16dd6cb5-fca3-45dd-ab9a-b13b1744905f" testId="9b72fd49-50dc-4967-a8fe-b9f16766167f" testName="AddTocart_Without_Quantity" computerName="DESKTOP-FCRQ2KL" duration="00:01:06.3488261" startTime="2022-10-20T09:00:43.6090685-07:00" endTime="2022-10-20T09:01:50.6475459-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16dd6cb5-fca3-45dd-ab9a-b13b1744905f">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62485/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 86&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e8432902-3b56-4159-ad42-be9f3e2d2f5c" testId="e2693663-6414-4459-9330-c473ef3b1fdc" testName="AddItems_into_Cart_With_InValid_Boundries" computerName="DESKTOP-FCRQ2KL" duration="00:00:38.8103365" startTime="2022-10-20T09:00:43.5990952-07:00" endTime="2022-10-20T09:01:23.1081521-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e8432902-3b56-4159-ad42-be9f3e2d2f5c">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0</Message>
+          <StackTrace>    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 47&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eaf89a34-068d-4066-bf6f-3c722a7f1d07" testId="4761aa8a-bdc1-4e32-87b0-50fd40e4085b" testName="Addtocart_Without_Size_color_and_Quantity" computerName="DESKTOP-FCRQ2KL" duration="00:01:35.4007122" startTime="2022-10-20T09:00:43.6030845-07:00" endTime="2022-10-20T09:02:19.6990506-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eaf89a34-068d-4066-bf6f-3c722a7f1d07">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62482/session/e3e972e3260571e7617bf7e6e28c799c/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 59&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c305a5a1-2465-4221-a3f0-c98f631857bc" testId="8fe2cea8-6918-49a1-be67-88710555faa1" testName="Addtocart_With_Invalid_Quantity" computerName="DESKTOP-FCRQ2KL" duration="00:01:06.0827538" startTime="2022-10-20T09:01:19.5454913-07:00" endTime="2022-10-20T09:02:25.6290458-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c305a5a1-2465-4221-a3f0-c98f631857bc">
+      <Output>
+        <StdOut>Addtocart_With_Invalid_Quantity</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62663/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 98&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="68ee4e3a-3b84-48f9-9d3f-41f76465df0f" testId="ddf9556f-e54c-40bb-8413-938a2ba8efb3" testName="PlaceOrder_Register_While_Add_Item_Ito_Wishlist (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:02:01.6430887" startTime="2022-10-20T09:00:43.4096025-07:00" endTime="2022-10-20T09:02:47.9174822-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="68ee4e3a-3b84-48f9-9d3f-41f76465df0f">
+      <Output>
+        <StdOut>verify_search_with_ValidData_and_Select_Items_From_Suggestion&#xD;
+Subscription_With_InValid_Email_HomePage&#xD;
+PlaceOrder_Register_While_Add_Item_Ito_Wishlist</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62490/session/a4c17895dfddb1048038dc415d72725d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 41&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f38888e7-0aec-4768-938a-1cc5326213bc" testId="f9138bf7-0acb-48da-8680-1bb2d4d899b5" testName="Verify_LogOut_Functionality (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:18.3209358" startTime="2022-10-20T09:00:43.5502262-07:00" endTime="2022-10-20T09:02:36.5339003-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f38888e7-0aec-4768-938a-1cc5326213bc">
+      <Output>
+        <StdOut>Verify_LogOut_Functionality</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62659/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73&#xD;
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 63&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="45bc3a88-5a07-4cca-be2f-ef210db213af" testId="86d4a32b-3e29-44d3-92db-fdc27210b7c3" testName="Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:00:36.8235737" startTime="2022-10-20T09:00:43.5781512-07:00" endTime="2022-10-20T09:01:23.1293247-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45bc3a88-5a07-4cca-be2f-ef210db213af">
+      <Output>
+        <StdOut>Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0</Message>
+          <StackTrace>    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101&#xD;
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 37&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a142f9de-0c4f-470f-b9e4-7684e486896d" testId="fec994d8-07f8-4f42-971a-f7aaca6f6066" testName="Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:02.6383248" startTime="2022-10-20T09:00:43.5721674-07:00" endTime="2022-10-20T09:02:11.8960230-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a142f9de-0c4f-470f-b9e4-7684e486896d">
+      <Output>
+        <StdOut>Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62626/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 87&#xD;
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 21&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="71363327-4c13-4229-bd76-c0d1f4164254" testId="1420eee0-7961-4050-93b6-efffd6e4ea0a" testName="Subscription_With_Valid_Email_Homepage (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:17.0965668" startTime="2022-10-20T09:00:43.4216531-07:00" endTime="2022-10-20T09:02:03.3984134-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71363327-4c13-4229-bd76-c0d1f4164254">
+      <Output>
+        <StdOut>Subscription_With_Valid_Email_Homepage</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62496/session/61eee6c4602576bedcc156cf1501c491/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 23&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="185988e3-986e-47b8-9218-ef1fb989acf8" testId="7baa93cc-f922-4dc4-be43-fc8891622629" testName="Search_Products_By_Invalid_Data (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:45.8752799" startTime="2022-10-20T09:00:43.4135911-07:00" endTime="2022-10-20T09:02:32.1516176-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="185988e3-986e-47b8-9218-ef1fb989acf8">
+      <Output>
+        <StdOut>Search_Products_By_Invalid_Data</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62491/session/956770e9fe05c51d3d46c44d07562ec1/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 40&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0543bf00-ccfc-4a8c-a913-73fe55ab1a07" testId="2ec246e2-a9d2-47c7-b59b-385e5bb76444" testName="PlaceOrder_Register_Before_Checkout (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:00:33.1607483" startTime="2022-10-20T09:00:43.4145891-07:00" endTime="2022-10-20T09:01:19.4747765-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0543bf00-ccfc-4a8c-a913-73fe55ab1a07">
+      <Output>
+        <StdOut>PlaceOrder_Register_Before_Checkout</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0</Message>
+          <StackTrace>    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 62&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aaf6dcdf-f616-459a-bf46-3720aac3bbe0" testId="a9f3c468-2368-40b8-a32e-d053c744159c" testName="Verify_SignUp_with_invalid_credentials (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:00:33.3679401" startTime="2022-10-20T09:00:43.4066118-07:00" endTime="2022-10-20T09:01:19.7219152-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aaf6dcdf-f616-459a-bf46-3720aac3bbe0">
+      <Output>
+        <StdOut>Verify_SignUp_with_invalid_credentials</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0</Message>
+          <StackTrace>    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 43&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c663ae4c-d31c-4d9e-a2aa-27d635391800" testId="44ada78c-bdc5-4423-b8ce-3e8ff47272b5" testName="Add_Item_IntoCart_Update_Delete" computerName="DESKTOP-FCRQ2KL" duration="00:01:22.4015345" startTime="2022-10-20T09:00:43.5861300-07:00" endTime="2022-10-20T09:02:06.6975938-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c663ae4c-d31c-4d9e-a2aa-27d635391800">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62484/session/da4d39b1f02edbf58f118baa21d1730b/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 21&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d3e5c2a4-d291-4a9a-bd85-a6ced4a25946" testId="c5554393-e606-43eb-aa38-bcd538ffd0e6" testName="LoginWithInvalidCredentials (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:15.5497780" startTime="2022-10-20T09:00:43.5059767-07:00" endTime="2022-10-20T09:02:01.8635161-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3e5c2a4-d291-4a9a-bd85-a6ced4a25946">
+      <Output>
+        <StdOut>LoginWithInvalidCredentials&#xD;
+Unable to connect to the remote server</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62498/session/0a7c0e4ded15ed8181b16fa5a8ddbeb4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 47&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="156ada75-2f0c-4582-8776-050b374bc23b" testId="f07773d6-9210-4c7b-b6e1-c5e373563302" testName="PlaceOrder_SignIn_While_CheckOut" computerName="DESKTOP-FCRQ2KL" duration="00:01:24.3243841" startTime="2022-10-20T09:00:43.4115967-07:00" endTime="2022-10-20T09:02:08.6164662-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="156ada75-2f0c-4582-8776-050b374bc23b">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62483/session/1c2e46477aa4a3112f3afd6db282a2f4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 28&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c8d6743b-2fa6-416c-acc7-e771d07ef0ac" testId="f9890ac1-4036-4e23-a4ad-0c5e2ff4d96c" testName="Verify_Sign_up_with_Existing_User (Data Row 0)" computerName="DESKTOP-FCRQ2KL" duration="00:01:04.1888889" startTime="2022-10-20T09:00:43.4175811-07:00" endTime="2022-10-20T09:01:50.4929596-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8d6743b-2fa6-416c-acc7-e771d07ef0ac">
+      <Output>
+        <StdOut>Verify_Sign_up_with_Existing_User&#xD;
+The operation has timed out&#xD;
+Unable to connect to the remote server&#xD;
+Unable to connect to the remote server</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62497/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)&#xD;
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)&#xD;
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)&#xD;
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 62&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4f734e64-a3da-4616-a5d4-1c86ed6f530a" testId="6963a40a-5af6-494a-8e4f-3fac7fec349e" testName="Verify_Click_Sign_Up_button_WithOut_Enter_AnyData" computerName="DESKTOP-FCRQ2KL" duration="00:01:24.3284872" startTime="2022-10-20T09:00:43.4066118-07:00" endTime="2022-10-20T09:02:08.6304287-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f734e64-a3da-4616-a5d4-1c86ed6f530a">
+      <Output>
+        <StdOut>Addtocart_Without_Size_color_and_Quantity&#xD;
+Verify_Click_Sign_Up_button_WithOut_Enter_AnyData&#xD;
+Add_Item_IntoCart_Update_Delete&#xD;
+AddItems_into_Cart_With_InValid_Boundries&#xD;
+AddTocart_Without_Quantity&#xD;
+AddTocart_Without_color_and_Quantity&#xD;
+PlaceOrder_SignIn_While_CheckOut&#xD;
+AddItems_into_Cart_With_Valid_Boundries</StdOut>
+        <ErrorInfo>
+          <Message>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData threw exception: &#xD;
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62481/session/9183fc84d377cc70d8b21fa104bff382/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.</Message>
+          <StackTrace>    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+--- End of inner exception stack trace ---&#xD;
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)&#xD;
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)&#xD;
+   at OpenQA.Selenium.WebDriver.set_Url(String value)&#xD;
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89&#xD;
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 102&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="fec994d8-07f8-4f42-971a-f7aaca6f6066">
+      <Execution id="a142f9de-0c4f-470f-b9e4-7684e486896d" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase" name="Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields" />
+    </UnitTest>
+    <UnitTest name="Verify_Sign_up_new_user_with_valid_Credentials (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="cfc09bd2-054c-48db-83bd-35c1c0a85836">
+      <Execution id="defbd72c-3ade-4f21-80fc-9730c2b365bb" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases" name="Verify_Sign_up_new_user_with_valid_Credentials" />
+    </UnitTest>
+    <UnitTest name="verify_search_with_ValidData_and_Select_Items_From_Suggestion (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="d0530863-e1b7-4a2f-86a1-fb29af339fed">
+      <TestCategory>
+        <TestCategoryItem TestCategory="SearchClass" />
+      </TestCategory>
+      <Execution id="bf809ef2-1f4f-4d8f-9e4c-61b83c6c9111" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase" name="verify_search_with_ValidData_and_Select_Items_From_Suggestion" />
+    </UnitTest>
+    <UnitTest name="Verify_Click_Sign_Up_button_WithOut_Enter_AnyData" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="6963a40a-5af6-494a-8e4f-3fac7fec349e">
+      <Execution id="4f734e64-a3da-4616-a5d4-1c86ed6f530a" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases" name="Verify_Click_Sign_Up_button_WithOut_Enter_AnyData" />
+    </UnitTest>
+    <UnitTest name="Subscription_With_Valid_Email_Homepage (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="1420eee0-7961-4050-93b6-efffd6e4ea0a">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Subscription" />
+      </TestCategory>
+      <Execution id="71363327-4c13-4229-bd76-c0d1f4164254" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase" name="Subscription_With_Valid_Email_Homepage" />
+    </UnitTest>
+    <UnitTest name="AddTocart_Without_Quantity" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="9b72fd49-50dc-4967-a8fe-b9f16766167f">
+      <Execution id="16dd6cb5-fca3-45dd-ab9a-b13b1744905f" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="AddTocart_Without_Quantity" />
+    </UnitTest>
+    <UnitTest name="Search_Products_By_Invalid_Data (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="7baa93cc-f922-4dc4-be43-fc8891622629">
+      <TestCategory>
+        <TestCategoryItem TestCategory="SearchClass" />
+      </TestCategory>
+      <Execution id="185988e3-986e-47b8-9218-ef1fb989acf8" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase" name="Search_Products_By_Invalid_Data" />
+    </UnitTest>
+    <UnitTest name="Addtocart_With_Invalid_Quantity" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="8fe2cea8-6918-49a1-be67-88710555faa1">
+      <Execution id="c305a5a1-2465-4221-a3f0-c98f631857bc" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="Addtocart_With_Invalid_Quantity" />
+    </UnitTest>
+    <UnitTest name="Addtocart_Without_Size_color_and_Quantity" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="4761aa8a-bdc1-4e32-87b0-50fd40e4085b">
+      <Execution id="eaf89a34-068d-4066-bf6f-3c722a7f1d07" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="Addtocart_Without_Size_color_and_Quantity" />
+    </UnitTest>
+    <UnitTest name="LoginWithValidcredentials (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="afea1452-cb71-49cf-a39b-1cc7a93b7efb">
+      <TestCategory>
+        <TestCategoryItem TestCategory="LogIn" />
+      </TestCategory>
+      <Execution id="0f23452e-749b-42b3-8375-74f1849e08e9" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase" name="LoginWithValidcredentials" />
+    </UnitTest>
+    <UnitTest name="AddItems_into_Cart_With_Valid_Boundries" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="89feb9ba-231d-4c50-b074-b1d185236a85">
+      <Execution id="b8d99931-78ac-4b59-b899-679fb522f368" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="AddItems_into_Cart_With_Valid_Boundries" />
+    </UnitTest>
+    <UnitTest name="LoginWithInvalidCredentials (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="c5554393-e606-43eb-aa38-bcd538ffd0e6">
+      <TestCategory>
+        <TestCategoryItem TestCategory="LogIn" />
+      </TestCategory>
+      <Execution id="d3e5c2a4-d291-4a9a-bd85-a6ced4a25946" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase" name="LoginWithInvalidCredentials" />
+    </UnitTest>
+    <UnitTest name="Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="86d4a32b-3e29-44d3-92db-fdc27210b7c3">
+      <Execution id="45bc3a88-5a07-4cca-be2f-ef210db213af" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase" name="Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields" />
+    </UnitTest>
+    <UnitTest name="PlaceOrder_Register_While_Add_Item_Ito_Wishlist (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="ddf9556f-e54c-40bb-8413-938a2ba8efb3">
+      <Execution id="68ee4e3a-3b84-48f9-9d3f-41f76465df0f" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase" name="PlaceOrder_Register_While_Add_Item_Ito_Wishlist" />
+    </UnitTest>
+    <UnitTest name="PlaceOrder_SignIn_While_CheckOut" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="f07773d6-9210-4c7b-b6e1-c5e373563302">
+      <Execution id="156ada75-2f0c-4582-8776-050b374bc23b" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase" name="PlaceOrder_SignIn_While_CheckOut" />
+    </UnitTest>
+    <UnitTest name="Subscription_With_InValid_Email_HomePage (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="c5496263-efe1-4eb1-95d3-8bce4c25dc59">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Subscription" />
+      </TestCategory>
+      <Execution id="779203ae-88bb-4ace-b65e-33185e2faaed" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase" name="Subscription_With_InValid_Email_HomePage" />
+    </UnitTest>
+    <UnitTest name="Add_Item_IntoCart_Update_Delete" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="44ada78c-bdc5-4423-b8ce-3e8ff47272b5">
+      <Execution id="c663ae4c-d31c-4d9e-a2aa-27d635391800" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="Add_Item_IntoCart_Update_Delete" />
+    </UnitTest>
+    <UnitTest name="AddTocart_Without_color_and_Quantity" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="0c490b9b-c42a-4eaf-ad1f-5a5db268c090">
+      <Execution id="027b7922-8874-4df8-82b2-177adeaff392" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="AddTocart_Without_color_and_Quantity" />
+    </UnitTest>
+    <UnitTest name="Verify_Sign_up_with_Existing_User (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="f9890ac1-4036-4e23-a4ad-0c5e2ff4d96c">
+      <Execution id="c8d6743b-2fa6-416c-acc7-e771d07ef0ac" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases" name="Verify_Sign_up_with_Existing_User" />
+    </UnitTest>
+    <UnitTest name="Verify_LogOut_Functionality (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="f9138bf7-0acb-48da-8680-1bb2d4d899b5">
+      <TestCategory>
+        <TestCategoryItem TestCategory="LogIn" />
+      </TestCategory>
+      <Execution id="f38888e7-0aec-4768-938a-1cc5326213bc" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase" name="Verify_LogOut_Functionality" />
+    </UnitTest>
+    <UnitTest name="PlaceOrder_Register_Before_Checkout (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="2ec246e2-a9d2-47c7-b59b-385e5bb76444">
+      <Execution id="0543bf00-ccfc-4a8c-a913-73fe55ab1a07" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase" name="PlaceOrder_Register_Before_Checkout" />
+    </UnitTest>
+    <UnitTest name="AddItems_into_Cart_With_InValid_Boundries" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="e2693663-6414-4459-9330-c473ef3b1fdc">
+      <Execution id="e8432902-3b56-4159-ad42-be9f3e2d2f5c" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases" name="AddItems_into_Cart_With_InValid_Boundries" />
+    </UnitTest>
+    <UnitTest name="Verify_SignUp_with_invalid_credentials (Data Row 0)" storage="c:\users\raees\source\repos\sqabootcampfinalproject\bin\debug\sqabootcampfinalproject.dll" id="a9f3c468-2368-40b8-a32e-d053c744159c">
+      <Execution id="aaf6dcdf-f616-459a-bf46-3720aac3bbe0" />
+      <TestMethod codeBase="C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll" adapterTypeName="executor://mstestadapter/v2" className="SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases" name="Verify_SignUp_with_invalid_credentials" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="89feb9ba-231d-4c50-b074-b1d185236a85" executionId="b8d99931-78ac-4b59-b899-679fb522f368" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5496263-efe1-4eb1-95d3-8bce4c25dc59" executionId="779203ae-88bb-4ace-b65e-33185e2faaed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfc09bd2-054c-48db-83bd-35c1c0a85836" executionId="defbd72c-3ade-4f21-80fc-9730c2b365bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c490b9b-c42a-4eaf-ad1f-5a5db268c090" executionId="027b7922-8874-4df8-82b2-177adeaff392" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afea1452-cb71-49cf-a39b-1cc7a93b7efb" executionId="0f23452e-749b-42b3-8375-74f1849e08e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0530863-e1b7-4a2f-86a1-fb29af339fed" executionId="bf809ef2-1f4f-4d8f-9e4c-61b83c6c9111" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b72fd49-50dc-4967-a8fe-b9f16766167f" executionId="16dd6cb5-fca3-45dd-ab9a-b13b1744905f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e2693663-6414-4459-9330-c473ef3b1fdc" executionId="e8432902-3b56-4159-ad42-be9f3e2d2f5c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4761aa8a-bdc1-4e32-87b0-50fd40e4085b" executionId="eaf89a34-068d-4066-bf6f-3c722a7f1d07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8fe2cea8-6918-49a1-be67-88710555faa1" executionId="c305a5a1-2465-4221-a3f0-c98f631857bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ddf9556f-e54c-40bb-8413-938a2ba8efb3" executionId="68ee4e3a-3b84-48f9-9d3f-41f76465df0f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9138bf7-0acb-48da-8680-1bb2d4d899b5" executionId="f38888e7-0aec-4768-938a-1cc5326213bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86d4a32b-3e29-44d3-92db-fdc27210b7c3" executionId="45bc3a88-5a07-4cca-be2f-ef210db213af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fec994d8-07f8-4f42-971a-f7aaca6f6066" executionId="a142f9de-0c4f-470f-b9e4-7684e486896d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1420eee0-7961-4050-93b6-efffd6e4ea0a" executionId="71363327-4c13-4229-bd76-c0d1f4164254" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7baa93cc-f922-4dc4-be43-fc8891622629" executionId="185988e3-986e-47b8-9218-ef1fb989acf8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ec246e2-a9d2-47c7-b59b-385e5bb76444" executionId="0543bf00-ccfc-4a8c-a913-73fe55ab1a07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9f3c468-2368-40b8-a32e-d053c744159c" executionId="aaf6dcdf-f616-459a-bf46-3720aac3bbe0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44ada78c-bdc5-4423-b8ce-3e8ff47272b5" executionId="c663ae4c-d31c-4d9e-a2aa-27d635391800" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5554393-e606-43eb-aa38-bcd538ffd0e6" executionId="d3e5c2a4-d291-4a9a-bd85-a6ced4a25946" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f07773d6-9210-4c7b-b6e1-c5e373563302" executionId="156ada75-2f0c-4582-8776-050b374bc23b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9890ac1-4036-4e23-a4ad-0c5e2ff4d96c" executionId="c8d6743b-2fa6-416c-acc7-e771d07ef0ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6963a40a-5af6-494a-8e4f-3fac7fec349e" executionId="4f734e64-a3da-4616-a5d4-1c86ed6f530a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="23" executed="23" passed="0" failed="23" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>MSTest Executor: Test Parallelization enabled for C:\Users\raees\source\repos\SQABootCampFinalProject\bin\Debug\SQABootCampFinalProject.dll (Workers: 22, Scope: MethodLevel).&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

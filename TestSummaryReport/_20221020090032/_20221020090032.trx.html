@@ -1,0 +1,2972 @@
+﻿<!DOCTYPE html><html xmlns:t="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:trxreport="urn:my-scripts">
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <style>html,
+body,
+form,
+fieldset,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+blockquote,
+ul,
+ol,
+dl,
+address {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapOverall {
+    width: auto;
+    margin: -8px 0px 0px 0px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#floatingImageBackground {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -330px;
+    z-index: 100;
+    width: 680px;
+    height: 600px;
+    visibility: hidden;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    border: 2px #0f9bdc;
+    border-style: solid;
+}
+
+.hWhite {
+    color: #333;
+}
+
+.titleCenterd {
+    position: relative;
+    top: 12px;
+    height: 40px;
+}
+
+.StatusBar {
+    width: 100%;
+    height: 80px;
+}
+
+.statusBarPassed {
+    background-color: #5bab5b;
+}
+
+.statusBarFailed {
+    background-color: #b93333;
+}
+
+.statusBarFailedInner {
+    position: relative;
+    background-color: #a90000;
+    width: 100%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 15%;
+}
+
+.statusBarPassedInner {
+    position: relative;
+    background-color: #339833;
+    width: 100%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 15%;
+}
+
+#floatingImage {
+    position: relative;
+    margin-left: 8%;
+    margin-top: 6%;
+    width: auto;
+    max-width: 566px;
+}
+
+.floatingImageCloseButton {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAABBtJREFUeNrUmUtPG1cUgD+blxsenhpHTUEtkwi6QBBNpG5qb6wWRaq6sdRkFUWy4i2J5h+MvLDbn5AN66z8D1hYssp6VAjroTXtAmzGTUITyHi6OYOuBxtsIMWMdDRzx557Pp/X3Hsc4fJHRDkH174IyvlSk/f7TASIAkMiwzJWAVvAR8ATaYXArxwwogCNiowp1wEkCtyRyAflOgD2rwowolhpDPgMuAVMAOMyjgEj8j0E4Bh4D/wLvAPeAocy/qBY178oYODKAOwWMAXEAU1kCphIpVIzy8vLyUQiMQ7QaDTebW5u7m9sbPwlYP8ArkhTxocKaFfXD58DN6KAJYDbIgnLslIrKyv3FxcXv04kEhOdJmk0Gm+3t7f/WF9f/71QKGwADWBPpKGAHveTUEECxIBpYAFIA4+B1WKxWK7X62/8Po96vf6mWCyWgVWZKy1zT4uuaCePdnJxVCw3ASSBL4Gv8vl8ulAo/Dw7O5sMP7Czs4PjOLiuC4Cmaei6ztzc3KnJd3d39y3LKq+trf0G/An8DexLKBxLgp1pvVHgc/l1GSBXKpXKnud5qkUcx/FN0/R1XfeVGGoTXdd90zR9x3HarOl5nlcqlcpATnQsiM7R8xJ3GJgE5sQFT0ulUlmd3HVd3zTNrlDdxDRN33XdNlCBfCq65kT38FnWiwFfAA+Ax/l8/qVqOdu2fcMw+oYLxDAM37btNkvm8/mXEpMPRHesmxWHpYQsAA+B1VqttqfCaZp2YbhANE1rg6zVanuSOA9Fd7yTFSNS6+4A3wJPisViWXXrZSzXyZKquyW7n4juO8ISCWfuJHAPWAGeq6XkIjHXS0yqJQh4LrrvCUs07N5p4D7wyLKsV2q2nqUom812tK5hGH42mz3zWTW7Lct6BTwShumwm8eAGeA74Fm1Wn3di/VyuVzHEFBdmMvlerJitVp9DTwThhlhOom/ceAu8APwQnVvtzqXzWb9cPkxDONUfPm+39WSuq6H3fwC+B7Q5RUbCQCngG+An1Kp1K+9uLcTiOu6He+dlWCqm9Pp9C/Aj5LNk0Akqrx7R4CRpaWl24FpHcfpWtFt2yaTydBsNk/uxeNx4vH4ybjZbJLJZLBtu+s8qg7RHawth8KAUWBofn4+0QtgN8h+4MJHq9UKFsRRtbygLnUODg7eBzc0TeO6j6iyf2gBXr1eP+wV0DAMKpVKm1tVd1cqFQzD6B0mGlX3L6cAPwJHW1tbe8GHuq73BddsNk/F5HmQqg7RfRTeDkQkpXVJ8YErMwNfqG/Eq27gFwsDv9wa+AXrjVjyD/ymaSC3nVe6cQdwXfeTbtxvROvjuppHHTtcV9p+a7VaQ8lkMnaV7bcb3cDspwU8EmoB+/9nC7iXJnogahPdC8knb6Jfy98Q/w0Amdn66HQGzvsAAAAASUVORK5CYII=');
+    font-size: 50px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 20px;
+    left: 3%;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    background-repeat: no-repeat;
+}
+
+.atachmentImage {
+    float: right;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAJFBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAW+S7RAAAAC3RSTlMAABBAYHCfv8/f7y5wfg4AAACNSURBVHhendC9DYMwFEXhq0BEi7egTJEBIlHSuKdhBHpGYARGSEtA8JaDBwjbt0Aop/zk5z8Y6gZoh8KVyVrl4NEqDDiXZ7JVGZPu0O4wbPDsxGuyKCXoh28IM4Q6YMzfTQAfIPahx1rhQa2QONAJnXHwUoiugEd4Uz6WL8ZXF4qfP/EH9fSFs4Wh/oAFE9baEPQEC+YAAAAASUVORK5CYIIyNjk=');
+}
+
+
+#exceptionArrow {
+    float: left;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+body {
+    font: 16px/20px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    margin-top: -10px;
+    min-width: 890px;
+}
+
+p {
+    text-align: center;
+}
+
+a:link {
+    color: #d42945;
+    text-decoration: none;
+    border-bottom: 1px dotted #ffbac8;
+}
+
+a:visited {
+    color: #d42945;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #f03b58;
+    border-bottom: 1px solid #f03b58;
+    text-decoration: none;
+}
+
+
+.StatusesBorders {
+    border-width: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    width: 100px;
+}
+
+.PackageStatus {
+    width: 100px;
+}
+
+.SummaryTable {
+    width: auto;
+    max-width: 407px;
+    float: left;
+    margin-right: 20px;
+}
+
+#divToRefresh > div > table.SummaryTable > tbody > tr > th {
+    width: auto;
+    font-weight: bold;
+}
+
+.DetailsTable {
+    width: auto;
+    max-width: 407px;
+    float: left;
+    margin-right: 20px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.StatusesTable {
+    width: auto;
+}
+
+#divToRefresh > div.SummaryDiv > table.DetailsTable > tbody > tr > td {
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#divToRefresh > div.SummaryDiv > table.DetailsTable > tbody > tr > th {
+    width: 30px;
+    font-weight:bold;
+    /*background-color: #FFFFFF;*/
+}
+
+td.slowest {
+    width: auto;
+}
+
+#TotalTestsTable {
+    min-width: 250px;
+    width: auto;
+    float: left;
+    margin-right: 20px;
+}
+
+.SummaryDiv {
+    width: 90%;
+    border-top: 1px solid #e5eff8;
+    border-right: 1px solid #e5eff8;
+    margin: 1em auto;
+    border-collapse: collapse;
+}
+
+.Summary {
+    float: left;
+    border-collapse: collapse;
+}
+
+#btn-download {
+    font-size: 14px;
+}
+
+.column1 {
+    color: #425b71 !important;
+    width: 170px;
+    background: #fff;
+    width: 170px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.column1Failed {
+    background: #c32929;
+    width: 30px;
+}
+
+#ReportsTable > tbody > tr > th {
+    width: 170px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+#ReportsTable th {
+    background: #ffffff;
+    text-align: center;
+    color: #425b71 !important;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#TotalPassed {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #7CCD7C;
+    background: #c0eec0;
+    border: 1px solid #7CCD7C;
+    margin-bottom: 5px;
+}
+
+#TotalWarn {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #E4C100;
+    background: #FBE87E;
+    border: 1px solid #E4C100;
+    margin-bottom: 5px;
+}
+
+#TotalFailed {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #d42945;
+    background: #fed9d9;
+    border: 1px solid #d42945;
+    margin-bottom: 5px;
+}
+
+#TotalInfo {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    border: 1px solid #c7c7c7;
+    color: #c7c7c7;
+    background: #e0e0e0;
+}
+
+#dataViewer {
+    width: 240px;
+}
+
+.OpenMoreButton {
+    height: auto;
+    width: 200px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    background: #47aaf7;
+    color: white;
+    border: 1px solid #7ac5ff;
+    float: right;
+}
+
+    .OpenMoreButton:hover {
+        background-color: #bfe3ff;
+        text-decoration: none;
+    }
+
+
+
+#MoreButtonText {
+    color: #1b99fb;
+    top: 0;
+    left: 25px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.NumberTag {
+    display: inline;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 4px;
+    height: auto;
+    color: #678197;
+    border: 1px solid #78bcff;
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2px;
+    line-height: 27px;
+}
+
+.NumberTagRed {
+    background-color: #fed9d9;
+}
+
+.NumberTagGreen {
+    background-color: #c0eec0;
+}
+
+.NumberTagYellow {
+    background-color: #FBE87E;
+}
+
+.hiddenRow {
+    display: none;
+    visibility: hidden;
+}
+
+.visibleRow {
+    visibility: visible;
+}
+.statusBarErrorInner {
+    background: #ffffff;
+    border: 1px solid #333333 !important;
+}
+</style>
+    <style>table a,
+table a:link,
+table a:visited {
+    border: none;
+}
+
+img {
+    border: 0;
+    margin-top: .5em;
+}
+
+table {
+    width: 90%;
+    margin: 1em auto;
+    border-collapse: collapse;
+    border: 1px solid #bcbbbb;
+}
+
+caption {
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: .2em;
+    margin: 1em 0 0 0;
+    padding: 0;
+    caption-side: top;
+    text-align: center;
+    font-weight: normal;
+    border-top: 1px solid #a2caf2;
+    border-left: 1px solid #a2caf2;
+    border-right: 1px solid #a2caf2;
+    background-color: #4e574f;
+}
+
+tr.odd .column1 {
+    background: #dbedff;
+}
+
+tr.odd.column1Failed {
+    background: #f96868;
+    width: 30px;
+}
+
+tr.odd td, tr.sep td {
+    background: #FFFFFF;
+}
+
+tr.sep .column1 {
+    background: #7CCD7C;
+}
+
+tr.odd .ex,
+tr.sep .ex,
+td.ex {
+    text-align: left;
+    width: 100px;
+}
+
+td.exShow {
+    text-align: left;
+    width: 100px;
+    color: #000;
+}
+
+td.statusCount {
+    width: auto;
+}
+
+th.statusCount {
+    width: auto;
+}
+
+td.critical {
+    text-align: left;
+    width: 100px;
+}
+
+td.Message {
+    text-align: left;
+    width: auto;
+    word-wrap: break-word;
+}
+
+td.Messages {
+    text-align: left;
+    width: auto;
+    word-wrap: break-word;
+    max-width: 600px;
+}
+
+.Atached {
+    width: 30px
+}
+
+td.Function {
+    text-align: left;
+}
+
+tr.sep .error,
+tr.odd .error,
+td.error {
+    background: #F08080;
+}
+
+tr.odd .warn,
+tr.sep .warn,
+td.warn {
+    color: #E4C100;
+    background: #FBE87E;
+    width: 90px;
+}
+
+tr.odd .info,
+td.info,
+tr.sep .info {
+    color: #c7c7c7;
+    background: #e0e0e0;
+    width: 90px;
+}
+
+tr.odd .failed,
+tr.sep.failed,
+td.failed {
+    color: #fff;
+    background: #f96868 !important;
+    width: 90px;
+}
+
+tr.odd .passed,
+tr.sep.passed,
+td.passed {
+    color: #ffffff;
+    background: #53d192 !important;
+    width: 90px;
+}
+
+td {
+    color: #425b71;
+    ;
+    padding: .3em 1em;
+    text-align: center;
+    border-left: 1px solid #bcbbbb;
+    border-top: 1px solid #bcbbbb;
+    word-wrap: break-word;
+    font-size: 12px;
+}
+
+th {
+    font-weight: normal;
+    color: #678197;
+    text-align: left;
+    border-left: 1px solid #bcbbbb;
+    border-top: 1px solid #bcbbbb;
+    padding: .3em 1em;
+}
+
+thead th.TestsTable {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background: #ffffff;
+}
+
+thead th {
+    background: #ffffff;
+    text-align: center;
+    color: #333333;
+    font-size: 12px;
+}
+
+tfoot th {
+    text-align: center;
+    background: #f4f9fe;
+}
+
+    tfoot th strong {
+        font: bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+        margin: .5em .5em .5em 0;
+        color: #678197;
+    }
+
+    tfoot th em {
+        color: #678197;
+        font-weight: bold;
+        font-size: 1.1em;
+        font-style: normal;
+    }
+</style><script language="javascript" type="text/javascript">
+var myColor = ["#53d192", "#f96868", "#E6D333"];//green,red,yellow
+var myStrokeColor = ["#7CCD7C", "#d42945", "#ffcc00"];
+
+function ShowHide(id1, id2, textOnHide, textOnShow) {
+    if (document.getElementById(id1).className == 'visibleRow') {
+        document.getElementById(id2).innerHTML = textOnHide;
+        document.getElementById(id1).className = 'hiddenRow';
+    }
+    else {
+        document.getElementById(id2).innerHTML = textOnShow;
+        document.getElementById(id1).className = 'visibleRow';
+    }
+}
+
+function AddEventListener() {
+    var button = document.getElementById('btn-download');
+    button.addEventListener('click', function () {
+        button.href = canvas.toDataURL('image/png');
+    });
+}
+
+function show(id) {
+    document.getElementById(id).style.visibility = "visible";
+    document.getElementById(id).style.display = "block";
+}
+function hide(id) {
+
+    document.getElementById(id).style.visibility = "hidden";
+    document.getElementById(id).style.display = "none";
+}
+
+function updateFloatingImage(url) {
+    document.getElementById('floatingImage').src = url;
+}
+
+/**
+ * @return {number}
+ */
+function GetTotal() {
+    var myTotal = 0;
+    for (var j = 0; j < myData.length; j++) {
+        myTotal += (typeof myData[j] == 'number') ? myData[j] : 0;
+    }
+    return myTotal;
+}
+
+function CreateHorizontalBars(id, totalPass, totalFailed, totalWarn) {
+
+    if (isNaN(totalPass) || isNaN(totalFailed) || isNaN(totalWarn)) {
+        drawLine(30, 4.5, 3, 30.5, id);
+    }
+    var canvas;
+    var ctx;
+    var myArray = new Array(3);
+    myArray[0] = totalPass;
+    myArray[1] = totalFailed;
+    myArray[2] = totalWarn;
+
+    canvas = document.getElementById(id);
+    ctx = canvas.getContext("2d");
+
+    var cw = canvas.width;
+    var ch = canvas.height;
+
+    var width = 6;
+    var currX = -12;
+
+    ctx.translate(cw / 2, ch / 2);
+
+    ctx.rotate(Math.PI / 2);
+
+    ctx.restore();
+
+    for (var i = 0 ; i < myArray.length; i++) {
+        ctx.moveTo(100, 0);
+        ctx.fillStyle = myColor[i];
+        var h = myArray[i];
+        ctx.fillRect(currX, (canvas.height - h) + 25, width, h);
+        currX += width + 1;
+    }
+}
+
+
+
+function CreatePie() {
+    var canvas;
+    var ctx;
+    var lastend = 0;
+    var myTotal = GetTotal();
+
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    CreateText();
+
+    for (var i = 0; i < myData.length; i++) {
+        ctx.fillStyle = myColor[i];
+        ctx.beginPath();
+        ctx.moveTo(160, 75);
+        ctx.arc(160, 75, 75, lastend, lastend +
+            (Math.PI * 2 * (myData[i] / myTotal)), false);
+        ctx.lineTo(160, 75);
+        ctx.fill();
+        lastend += Math.PI * 2 * (myData[i] / myTotal);
+        ctx.arc(160, 75, 40, 0, Math.PI * 2);
+    }
+
+    // either change this to the background color, or use the global composition
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.moveTo(160, 35);
+    ctx.arc(160, 75, 40, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    // if using the global composition method, make sure to change it back to default.
+    ctx.globalCompositeOperation = "source-over";
+}
+
+function drawLine(x1, y1, x2, y2, id) {
+    var canvas = document.getElementById(id);
+    var context = canvas.getContext("2d");
+
+    for (var i = 0; i < 8; i++) {
+        context.fillStyle = '#000';
+        context.strokeStyle = '#B0B0B0';
+
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.lineWidth = 1;
+        context.stroke();
+        context.closePath();
+        x1 += 10;
+        y2 += 10;
+    }
+}
+
+function CreateText() {
+    var canvas;
+    var ctx;
+    var textPosY = 50;
+    var textPosX = 0;
+
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < myData.length; i++) {
+        ctx.fillStyle = myStrokeColor[i];
+        ctx.font = "15px arial";
+        ctx.fillText(myParsedData[i], textPosX, textPosY);
+        textPosY += 35;
+    }
+}
+
+var allPassed = 0;
+var allFailed = 0;
+var allWarns = 0;
+
+var myData = [];
+
+var myParsedData = [];
+
+function CalculateTotalPrecents() {
+
+    var totalTests = allPassed + allFailed + allWarns;
+    var passedPrec = (allPassed / totalTests) * 100;
+    var failedPrec = (allFailed / totalTests) * 100;
+    var warnPrec = (allWarns / totalTests) * 100;
+
+    myData.push(passedPrec);
+    myData.push(failedPrec);
+    myData.push(warnPrec);
+
+    myParsedData.push(allPassed + " (" + Math.round(passedPrec).toFixed(2) + "%)");
+    myParsedData.push(allFailed + " (" + Math.round(failedPrec).toFixed(2) + "%)");
+    myParsedData.push(allWarns + " (" + Math.round(warnPrec).toFixed(2) + "%)");
+
+    document.getElementById('dataViewer').innerHTML = "<tr class='odd'><td><canvas id='canvas' width='340' height='150'>This text is displayed if your browser does not support HTML5 Canvas.</canvas></td></tr>";
+    CreatePie();
+    AddEventListener();
+}
+
+function CalculateTestsStatuses(testContaineId, canvasId) {
+    var totalPassed = 0;
+    var totalFailed = 0;
+    var totalInconclusive = 0;
+    var e = document.getElementById(testContaineId);
+    var tests = e.getElementsByClassName('Test');
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        if (test.getElementsByClassName('warn').length > 0) {
+            totalInconclusive++;
+            allWarns++;
+        }
+        else if (test.getElementsByClassName('failed').length > 0) {
+            totalFailed++;
+            allFailed++;
+        }
+        else if (test.getElementsByClassName('passed').length > 0) {
+            totalPassed++;
+            allPassed++;
+        }
+    }
+
+    var totalTests = totalFailed + totalInconclusive + totalPassed;
+    var passedPrec = (totalPassed / totalTests) * 100;
+    var failedPrec = (totalFailed / totalTests) * 100;
+    var warnPrec = (totalInconclusive / totalTests) * 100;
+
+
+    CreateHorizontalBars(canvasId, passedPrec, failedPrec, warnPrec);
+}
+
+
+
+</script><title>raees@DESKTOP-FCRQ2KL 2022-10-20 09:01:19</title>
+  </head>
+  <body>
+    <div id="divToRefresh" class="wrapOverall">
+      <div id="floatingImageBackground" class="floatingImageBackground" style="visibility: hidden;">
+        <div class="floatingImageCloseButton" onclick="hide('floatingImageBackground');"></div><img src="" id="floatingImage"></div><br><div class="StatusBar statusBarFailed">
+        <div class="statusBarFailedInner">
+          <center>
+            <h1 class="hWhite">
+              <div class="titleCenterd">raees@DESKTOP-FCRQ2KL 2022-10-20 09:01:19</div>
+            </h1>
+          </center>
+        </div>
+      </div>
+      <div class="SummaryDiv">
+        <table id="TotalTestsTable">
+          <caption>Results Summary</caption>
+          <thead>
+            <tr class="odd">
+              <th scope="col" abbr="Status">
+                    Pie View
+                  </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div id="dataViewer"></div>
+              </td>
+            </tr>
+            <tr id="DownloadSection">
+              <td><a href="#" class="button" id="btn-download" download="raees@DESKTOP-FCRQ2KL 2022-10-20 09:01:19StatusesPie.png">Save graph</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="DetailsTable StatusesTable">
+          <caption>Tests Statuses</caption>
+          <tbody>
+            <tr class="odd">
+              <th class="column1 statusCount">Total</th>
+              <td class="statusCount">23</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Executed</th>
+              <td class="statusCount">23</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Passed</th>
+              <td class="statusCount">0</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Failed</th>
+              <td class="statusCount">23</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Inconclusive</th>
+              <td class="statusCount">0</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Error</th>
+              <td class="statusCount">0</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Warning</th>
+              <td class="statusCount">0</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Timeout</th>
+              <td class="statusCount">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="SummaryTable">
+          <caption>Run Time Summary</caption>
+          <tbody>
+            <tr class="odd">
+              <th class="column1">Start Time</th>
+              <td>10/20/2022 9:00:39 AM</td>
+            </tr>
+            <tr>
+              <th class="column1">End Time</th>
+              <td>10/20/2022 9:03:20 AM</td>
+            </tr>
+            <tr>
+              <th class="column1">Duration</th>
+              <td>2.67 minutes</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="DetailsTable">
+          <caption>Tests Details</caption>
+          <tbody>
+            <tr class="odd">
+              <th class="column1">User</th>
+              <td>DESKTOP-FCRQ2KL\raees</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1">Machine</th>
+              <td>DESKTOP-FCRQ2KL</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1">Description</th>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table id="ReportsTable">
+        <caption>All Failed Tests</caption>
+        <tbody>
+          <tr>
+            <td class="column1Failed"></td>
+            <td class="Function">
+                    Faileds
+                  </td>
+            <td class="Message" name="Id"> Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('TestsContainer','Button','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="Button">Hide Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="TestsContainer" class="visibleRow">
+            <td colspan="4">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddItems_into_Cart_With_Valid_Boundries</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AX0ZStacktraceToggle" href="javascript:ShowHide('ID0AX0ZStacktrace','ID0AX0ZStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62480/session/dcbb6aa24e1a120cb239e753fc76fd3d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.87 minutes</td>
+                  </tr>
+                  <tr id="ID0AX0ZStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 36
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Subscription_With_InValid_Email_HomePage (Data Row 0)</td>
+                    <td class="Messages"><a style="float:right;" id="ID0APB0RBStacktraceToggle" href="javascript:ShowHide('ID0APB0RBStacktrace','ID0APB0RBStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62488/session/97f5731c89097ed9ffa3b073c62ab492/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.78 minutes</td>
+                  </tr>
+                  <tr id="ID0APB0RBStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 36
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Sign_up_new_user_with_valid_Credentials (Data Row 0)</td>
+                    <td class="Messages">Verify_Sign_up_new_user_with_valid_Credentials<a style="float:right;" id="ID0AHC0JCStacktraceToggle" href="javascript:ShowHide('ID0AHC0JCStacktrace','ID0AHC0JCStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62492/session/2dc0734fd99fe9c7df4343502b00b0dc/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">2.04 minutes</td>
+                  </tr>
+                  <tr id="ID0AHC0JCStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 83
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddTocart_Without_color_and_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0ABD0DDStacktraceToggle" href="javascript:ShowHide('ID0ABD0DDStacktrace','ID0ABD0DDStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62486/session/c39d67770836d8272554e31c523263cd/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.37 minutes</td>
+                  </tr>
+                  <tr id="ID0ABD0DDStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 73
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">LoginWithValidcredentials (Data Row 0)</td>
+                    <td class="Messages">LoginWithValidcredentials<a style="float:right;" id="ID0AZD02DStacktraceToggle" href="javascript:ShowHide('ID0AZD02DStacktrace','ID0AZD02DStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62493/session/9057e4ed6bcfdaa5dd712cbc4b4dec40/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.26 minutes</td>
+                  </tr>
+                  <tr id="ID0AZD02DStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 32
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">verify_search_with_ValidData_and_Select_Items_From_Suggestion (Data Row 0)</td>
+                    <td class="Messages"><a style="float:right;" id="ID0ATE0VEStacktraceToggle" href="javascript:ShowHide('ID0ATE0VEStacktrace','ID0ATE0VEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62489/session/6f71b22a807d7e8fa941b781e5a06f88/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.43 minutes</td>
+                  </tr>
+                  <tr id="ID0ATE0VEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 22
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddTocart_Without_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0ALF0NFStacktraceToggle" href="javascript:ShowHide('ID0ALF0NFStacktrace','ID0ALF0NFStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62485/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.11 minutes</td>
+                  </tr>
+                  <tr id="ID0ALF0NFStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 86
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddItems_into_Cart_With_InValid_Boundries</td>
+                    <td class="Messages"><a style="float:right;" id="ID0ADG0FGStacktraceToggle" href="javascript:ShowHide('ID0ADG0FGStacktrace','ID0ADG0FGStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">38.81 seconds</td>
+                  </tr>
+                  <tr id="ID0ADG0FGStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 47
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Addtocart_Without_Size_color_and_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0A2G04GStacktraceToggle" href="javascript:ShowHide('ID0A2G04GStacktrace','ID0A2G04GStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62482/session/e3e972e3260571e7617bf7e6e28c799c/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.59 minutes</td>
+                  </tr>
+                  <tr id="ID0A2G04GStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 59
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:01:19 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Addtocart_With_Invalid_Quantity</td>
+                    <td class="Messages">Addtocart_With_Invalid_Quantity<a style="float:right;" id="ID0ATH0VHStacktraceToggle" href="javascript:ShowHide('ID0ATH0VHStacktrace','ID0ATH0VHStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62663/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.10 minutes</td>
+                  </tr>
+                  <tr id="ID0ATH0VHStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 98
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_Register_While_Add_Item_Ito_Wishlist (Data Row 0)</td>
+                    <td class="Messages">verify_search_with_ValidData_and_Select_Items_From_Suggestion
+Subscription_With_InValid_Email_HomePage
+PlaceOrder_Register_While_Add_Item_Ito_Wishlist<a style="float:right;" id="ID0AOAAC0QAACStacktraceToggle" href="javascript:ShowHide('ID0AOAAC0QAACStacktrace','ID0AOAAC0QAACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62490/session/a4c17895dfddb1048038dc415d72725d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">2.03 minutes</td>
+                  </tr>
+                  <tr id="ID0AOAAC0QAACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 41
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_LogOut_Functionality (Data Row 0)</td>
+                    <td class="Messages">Verify_LogOut_Functionality<a style="float:right;" id="ID0AIBAC0KBACStacktraceToggle" href="javascript:ShowHide('ID0AIBAC0KBACStacktrace','ID0AIBAC0KBACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62659/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.31 minutes</td>
+                  </tr>
+                  <tr id="ID0AIBAC0KBACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 63
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields (Data Row 0)</td>
+                    <td class="Messages">Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields<a style="float:right;" id="ID0ACCAC0ECACStacktraceToggle" href="javascript:ShowHide('ID0ACCAC0ECACStacktrace','ID0ACCAC0ECACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">36.82 seconds</td>
+                  </tr>
+                  <tr id="ID0ACCAC0ECACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 37
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields (Data Row 0)</td>
+                    <td class="Messages">Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields<a style="float:right;" id="ID0A3CAC05CACStacktraceToggle" href="javascript:ShowHide('ID0A3CAC05CACStacktrace','ID0A3CAC05CACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62626/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.04 minutes</td>
+                  </tr>
+                  <tr id="ID0A3CAC05CACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 87
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 21
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Subscription_With_Valid_Email_Homepage (Data Row 0)</td>
+                    <td class="Messages">Subscription_With_Valid_Email_Homepage<a style="float:right;" id="ID0AWDAC0YDACStacktraceToggle" href="javascript:ShowHide('ID0AWDAC0YDACStacktrace','ID0AWDAC0YDACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62496/session/61eee6c4602576bedcc156cf1501c491/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.28 minutes</td>
+                  </tr>
+                  <tr id="ID0AWDAC0YDACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 23
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Search_Products_By_Invalid_Data (Data Row 0)</td>
+                    <td class="Messages">Search_Products_By_Invalid_Data<a style="float:right;" id="ID0AQEAC0SEACStacktraceToggle" href="javascript:ShowHide('ID0AQEAC0SEACStacktrace','ID0AQEAC0SEACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62491/session/956770e9fe05c51d3d46c44d07562ec1/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.76 minutes</td>
+                  </tr>
+                  <tr id="ID0AQEAC0SEACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 40
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_Register_Before_Checkout (Data Row 0)</td>
+                    <td class="Messages">PlaceOrder_Register_Before_Checkout<a style="float:right;" id="ID0AKFAC0MFACStacktraceToggle" href="javascript:ShowHide('ID0AKFAC0MFACStacktrace','ID0AKFAC0MFACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">33.16 seconds</td>
+                  </tr>
+                  <tr id="ID0AKFAC0MFACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 62
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_SignUp_with_invalid_credentials (Data Row 0)</td>
+                    <td class="Messages">Verify_SignUp_with_invalid_credentials<a style="float:right;" id="ID0AEGAC0GGACStacktraceToggle" href="javascript:ShowHide('ID0AEGAC0GGACStacktrace','ID0AEGAC0GGACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">33.37 seconds</td>
+                  </tr>
+                  <tr id="ID0AEGAC0GGACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 43
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Add_Item_IntoCart_Update_Delete</td>
+                    <td class="Messages"><a style="float:right;" id="ID0A5GAC0AHACStacktraceToggle" href="javascript:ShowHide('ID0A5GAC0AHACStacktrace','ID0A5GAC0AHACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62484/session/da4d39b1f02edbf58f118baa21d1730b/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.37 minutes</td>
+                  </tr>
+                  <tr id="ID0A5GAC0AHACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 21
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">LoginWithInvalidCredentials (Data Row 0)</td>
+                    <td class="Messages">LoginWithInvalidCredentials
+Unable to connect to the remote server<a style="float:right;" id="ID0AWHAC0YHACStacktraceToggle" href="javascript:ShowHide('ID0AWHAC0YHACStacktrace','ID0AWHAC0YHACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62498/session/0a7c0e4ded15ed8181b16fa5a8ddbeb4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.26 minutes</td>
+                  </tr>
+                  <tr id="ID0AWHAC0YHACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 47
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_SignIn_While_CheckOut</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AQIAC0SIACStacktraceToggle" href="javascript:ShowHide('ID0AQIAC0SIACStacktrace','ID0AQIAC0SIACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62483/session/1c2e46477aa4a3112f3afd6db282a2f4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.41 minutes</td>
+                  </tr>
+                  <tr id="ID0AQIAC0SIACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 28
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Sign_up_with_Existing_User (Data Row 0)</td>
+                    <td class="Messages">Verify_Sign_up_with_Existing_User
+The operation has timed out
+Unable to connect to the remote server
+Unable to connect to the remote server<a style="float:right;" id="ID0AIJAC0KJACStacktraceToggle" href="javascript:ShowHide('ID0AIJAC0KJACStacktrace','ID0AIJAC0KJACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62497/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.07 minutes</td>
+                  </tr>
+                  <tr id="ID0AIJAC0KJACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 62
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Click_Sign_Up_button_WithOut_Enter_AnyData</td>
+                    <td class="Messages">Addtocart_Without_Size_color_and_Quantity
+Verify_Click_Sign_Up_button_WithOut_Enter_AnyData
+Add_Item_IntoCart_Update_Delete
+AddItems_into_Cart_With_InValid_Boundries
+AddTocart_Without_Quantity
+AddTocart_Without_color_and_Quantity
+PlaceOrder_SignIn_While_CheckOut
+AddItems_into_Cart_With_Valid_Boundries<a style="float:right;" id="ID0ACKAC0EKACStacktraceToggle" href="javascript:ShowHide('ID0ACKAC0EKACStacktrace','ID0ACKAC0EKACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62481/session/9183fc84d377cc70d8b21fa104bff382/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.41 minutes</td>
+                  </tr>
+                  <tr id="ID0ACKAC0EKACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 102
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="ReportsTable">
+        <caption>All Tests Group By Classes</caption>
+        <thead>
+          <tr class="odd">
+            <th scope="col">Time</th>
+            <th scope="col" abbr="Status">Status</th>
+            <th scope="col" abbr="Test">
+                  Classes <div class="NumberTag">7</div>
+            </th>
+            <th scope="col" abbr="Message">Message</th>
+            <th scope="col" abbr="Exception">More</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0AHLAC0KLACcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase</td>
+            <td class="Message" name="ID0AHLAC0KLACId">2 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AHLAC0KLACTestsContainer','ID0AHLAC0KLACButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0AHLAC0KLACButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0AHLAC0KLACTestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields (Data Row 0)</td>
+                    <td class="Messages">Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields<a style="float:right;" id="ID0A6KAC0CLACStacktraceToggle" href="javascript:ShowHide('ID0A6KAC0CLACStacktrace','ID0A6KAC0CLACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62626/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.04 minutes</td>
+                  </tr>
+                  <tr id="ID0A6KAC0CLACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 87
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Fill_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 21
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields (Data Row 0)</td>
+                    <td class="Messages">Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields<a style="float:right;" id="ID0ASBAE0VBAEStacktraceToggle" href="javascript:ShowHide('ID0ASBAE0VBAEStacktrace','ID0ASBAE0VBAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">36.82 seconds</td>
+                  </tr>
+                  <tr id="ID0ASBAE0VBAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.ContactUs.ContactUsTestCase.Verfy_Contact_Us_Form_By_Empty_All_MandatoryFields() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\ContactUs\ContactUsTestCase.cs:line 37
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0AHLAC0KLACTestsContainer','ID0AHLAC0KLACcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0AWLAC0ZLACcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases</td>
+            <td class="Message" name="ID0AWLAC0ZLACId">4 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AWLAC0ZLACTestsContainer','ID0AWLAC0ZLACButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0AWLAC0ZLACButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0AWLAC0ZLACTestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Sign_up_new_user_with_valid_Credentials (Data Row 0)</td>
+                    <td class="Messages">Verify_Sign_up_new_user_with_valid_Credentials<a style="float:right;" id="ID0AOLAC0RLACStacktraceToggle" href="javascript:ShowHide('ID0AOLAC0RLACStacktrace','ID0AOLAC0RLACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62492/session/2dc0734fd99fe9c7df4343502b00b0dc/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">2.04 minutes</td>
+                  </tr>
+                  <tr id="ID0AOLAC0RLACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_new_user_with_valid_Credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 83
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Click_Sign_Up_button_WithOut_Enter_AnyData</td>
+                    <td class="Messages">Addtocart_Without_Size_color_and_Quantity
+Verify_Click_Sign_Up_button_WithOut_Enter_AnyData
+Add_Item_IntoCart_Update_Delete
+AddItems_into_Cart_With_InValid_Boundries
+AddTocart_Without_Quantity
+AddTocart_Without_color_and_Quantity
+PlaceOrder_SignIn_While_CheckOut
+AddItems_into_Cart_With_Valid_Boundries<a style="float:right;" id="ID0ASMAC0VMACStacktraceToggle" href="javascript:ShowHide('ID0ASMAC0VMACStacktrace','ID0ASMAC0VMACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62481/session/9183fc84d377cc70d8b21fa104bff382/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.41 minutes</td>
+                  </tr>
+                  <tr id="ID0ASMAC0VMACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Click_Sign_Up_button_WithOut_Enter_AnyData() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 102
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_Sign_up_with_Existing_User (Data Row 0)</td>
+                    <td class="Messages">Verify_Sign_up_with_Existing_User
+The operation has timed out
+Unable to connect to the remote server
+Unable to connect to the remote server<a style="float:right;" id="ID0ASEAE0VEAEStacktraceToggle" href="javascript:ShowHide('ID0ASEAE0VEAEStacktrace','ID0ASEAE0VEAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62497/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.07 minutes</td>
+                  </tr>
+                  <tr id="ID0ASEAE0VEAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_Sign_up_with_Existing_User() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 62
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_SignUp_with_invalid_credentials (Data Row 0)</td>
+                    <td class="Messages">Verify_SignUp_with_invalid_credentials<a style="float:right;" id="ID0AUGAE0XGAEStacktraceToggle" href="javascript:ShowHide('ID0AUGAE0XGAEStacktrace','ID0AUGAE0XGAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">33.37 seconds</td>
+                  </tr>
+                  <tr id="ID0AUGAE0XGAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases.Verify_SignUp_with_invalid_credentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SignUpPage\SignUpClassTestCases.cs:line 43
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0AWLAC0ZLACTestsContainer','ID0AWLAC0ZLACcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0ALMAC0OMACcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase</td>
+            <td class="Message" name="ID0ALMAC0OMACId">2 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0ALMAC0OMACTestsContainer','ID0ALMAC0OMACButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0ALMAC0OMACButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0ALMAC0OMACTestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">verify_search_with_ValidData_and_Select_Items_From_Suggestion (Data Row 0)</td>
+                    <td class="Messages"><a style="float:right;" id="ID0A4LAC0AMACStacktraceToggle" href="javascript:ShowHide('ID0A4LAC0AMACStacktrace','ID0A4LAC0AMACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62489/session/6f71b22a807d7e8fa941b781e5a06f88/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.43 minutes</td>
+                  </tr>
+                  <tr id="ID0A4LAC0AMACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.verify_search_with_ValidData_and_Select_Items_From_Suggestion() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 22
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Search_Products_By_Invalid_Data (Data Row 0)</td>
+                    <td class="Messages">Search_Products_By_Invalid_Data<a style="float:right;" id="ID0AFOAC0IOACStacktraceToggle" href="javascript:ShowHide('ID0AFOAC0IOACStacktrace','ID0AFOAC0IOACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62491/session/956770e9fe05c51d3d46c44d07562ec1/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.76 minutes</td>
+                  </tr>
+                  <tr id="ID0AFOAC0IOACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase.Search_Products_By_Invalid_Data() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SearchPage\SearchClassTestCase.cs:line 40
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0ALMAC0OMACTestsContainer','ID0ALMAC0OMACcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0APNAC0SNACcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase</td>
+            <td class="Message" name="ID0APNAC0SNACId">2 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0APNAC0SNACTestsContainer','ID0APNAC0SNACButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0APNAC0SNACButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0APNAC0SNACTestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Subscription_With_Valid_Email_Homepage (Data Row 0)</td>
+                    <td class="Messages">Subscription_With_Valid_Email_Homepage<a style="float:right;" id="ID0ABNAC0ENACStacktraceToggle" href="javascript:ShowHide('ID0ABNAC0ENACStacktrace','ID0ABNAC0ENACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62496/session/61eee6c4602576bedcc156cf1501c491/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.28 minutes</td>
+                  </tr>
+                  <tr id="ID0ABNAC0ENACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_Valid_Email_Homepage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 23
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Subscription_With_InValid_Email_HomePage (Data Row 0)</td>
+                    <td class="Messages"><a style="float:right;" id="ID0A6CAE0CDAEStacktraceToggle" href="javascript:ShowHide('ID0A6CAE0CDAEStacktrace','ID0A6CAE0CDAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62488/session/97f5731c89097ed9ffa3b073c62ab492/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.78 minutes</td>
+                  </tr>
+                  <tr id="ID0A6CAE0CDAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase.Subscription_With_InValid_Email_HomePage() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\SubScriptionPage\SubscriptionPageTestCase.cs:line 36
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0APNAC0SNACTestsContainer','ID0APNAC0SNACcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0A5NAC0BOACcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases</td>
+            <td class="Message" name="ID0A5NAC0BOACId">7 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0A5NAC0BOACTestsContainer','ID0A5NAC0BOACButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0A5NAC0BOACButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0A5NAC0BOACTestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddTocart_Without_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AWNAC0ZNACStacktraceToggle" href="javascript:ShowHide('ID0AWNAC0ZNACStacktrace','ID0AWNAC0ZNACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62485/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.11 minutes</td>
+                  </tr>
+                  <tr id="ID0AWNAC0ZNACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 86
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:01:19 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Addtocart_With_Invalid_Quantity</td>
+                    <td class="Messages">Addtocart_With_Invalid_Quantity<a style="float:right;" id="ID0A1OAC04OACStacktraceToggle" href="javascript:ShowHide('ID0A1OAC04OACStacktrace','ID0A1OAC04OACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62663/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.10 minutes</td>
+                  </tr>
+                  <tr id="ID0A1OAC04OACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_With_Invalid_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 98
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Addtocart_Without_Size_color_and_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AJPAC0MPACStacktraceToggle" href="javascript:ShowHide('ID0AJPAC0MPACStacktrace','ID0AJPAC0MPACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62482/session/e3e972e3260571e7617bf7e6e28c799c/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.59 minutes</td>
+                  </tr>
+                  <tr id="ID0AJPAC0MPACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Addtocart_Without_Size_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 59
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddItems_into_Cart_With_Valid_Boundries</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AOAAE0RAAEStacktraceToggle" href="javascript:ShowHide('ID0AOAAE0RAAEStacktrace','ID0AOAAE0RAAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62480/session/dcbb6aa24e1a120cb239e753fc76fd3d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.87 minutes</td>
+                  </tr>
+                  <tr id="ID0AOAAE0RAAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_Valid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 36
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Add_Item_IntoCart_Update_Delete</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AUDAE0XDAEStacktraceToggle" href="javascript:ShowHide('ID0AUDAE0XDAEStacktrace','ID0AUDAE0XDAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62484/session/da4d39b1f02edbf58f118baa21d1730b/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.37 minutes</td>
+                  </tr>
+                  <tr id="ID0AUDAE0XDAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.Add_Item_IntoCart_Update_Delete() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 21
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddTocart_Without_color_and_Quantity</td>
+                    <td class="Messages"><a style="float:right;" id="ID0ADEAE0GEAEStacktraceToggle" href="javascript:ShowHide('ID0ADEAE0GEAEStacktrace','ID0ADEAE0GEAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62486/session/c39d67770836d8272554e31c523263cd/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.37 minutes</td>
+                  </tr>
+                  <tr id="ID0ADEAE0GEAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddTocart_Without_color_and_Quantity() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 73
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">AddItems_into_Cart_With_InValid_Boundries</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AFGAE0IGAEStacktraceToggle" href="javascript:ShowHide('ID0AFGAE0IGAEStacktrace','ID0AFGAE0IGAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">38.81 seconds</td>
+                  </tr>
+                  <tr id="ID0AFGAE0IGAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases.AddItems_into_Cart_With_InValid_Boundries() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\AddToCart\AddToCartTestCases.cs:line 47
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0A5NAC0BOACTestsContainer','ID0A5NAC0BOACcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0AHAAE0KAAEcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase</td>
+            <td class="Message" name="ID0AHAAE0KAAEId">3 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AHAAE0KAAETestsContainer','ID0AHAAE0KAAEButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0AHAAE0KAAEButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0AHAAE0KAAETestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">LoginWithValidcredentials (Data Row 0)</td>
+                    <td class="Messages">LoginWithValidcredentials<a style="float:right;" id="ID0AYPAC02PACStacktraceToggle" href="javascript:ShowHide('ID0AYPAC02PACStacktrace','ID0AYPAC02PACStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62493/session/9057e4ed6bcfdaa5dd712cbc4b4dec40/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.26 minutes</td>
+                  </tr>
+                  <tr id="ID0AYPAC02PACStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithValidcredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 32
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">LoginWithInvalidCredentials (Data Row 0)</td>
+                    <td class="Messages">LoginWithInvalidCredentials
+Unable to connect to the remote server<a style="float:right;" id="ID0A4AAE0ABAEStacktraceToggle" href="javascript:ShowHide('ID0A4AAE0ABAEStacktrace','ID0A4AAE0ABAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62498/session/0a7c0e4ded15ed8181b16fa5a8ddbeb4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.26 minutes</td>
+                  </tr>
+                  <tr id="ID0A4AAE0ABAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.LoginWithInvalidCredentials() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 47
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">Verify_LogOut_Functionality (Data Row 0)</td>
+                    <td class="Messages">Verify_LogOut_Functionality<a style="float:right;" id="ID0ABFAE0EFAEStacktraceToggle" href="javascript:ShowHide('ID0ABFAE0EFAEStacktrace','ID0ABFAE0EFAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62659/session timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.31 minutes</td>
+                  </tr>
+                  <tr id="ID0ABFAE0EFAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeDriverService service, EdgeOptions options)
+   at OpenQA.Selenium.Edge.EdgeDriver..ctor(EdgeOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 73
+   at SQABootCampFinalProject.PageObjectModel.LogInPage.LoginPageTestCase.Verify_LogOut_Functionality() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\LogInPage\LogInPageTestCase.cs:line 63
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0AHAAE0KAAETestsContainer','ID0AHAAE0KAAEcanvas');
+                </script><tr>
+            <th scope="row" class="column1">7/21/2014 10:56:45 PM</th>
+            <td class="PackageStatus"><canvas id="ID0AJCAE0MCAEcanvas" width="100" height="25"></canvas></td>
+            <td class="Function">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase</td>
+            <td class="Message" name="ID0AJCAE0MCAEId">3 Tests</td>
+            <td class="ex">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AJCAE0MCAETestsContainer','ID0AJCAE0MCAEButton','Show Tests','Hide Tests');">
+                <div class="MoreButtonText" id="ID0AJCAE0MCAEButton">Show Tests</div>
+              </div>
+            </td>
+          </tr>
+          <tr id="ID0AJCAE0MCAETestsContainer" class="hiddenRow">
+            <td colspan="5">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable">Time</th>
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Test</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Message</th>
+                    <th scope="col" class="TestsTable" abbr="Message">Owner</th>
+                    <th scope="col" class="TestsTable" abbr="Exception">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_Register_While_Add_Item_Ito_Wishlist (Data Row 0)</td>
+                    <td class="Messages">verify_search_with_ValidData_and_Select_Items_From_Suggestion
+Subscription_With_InValid_Email_HomePage
+PlaceOrder_Register_While_Add_Item_Ito_Wishlist<a style="float:right;" id="ID0ABCAE0ECAEStacktraceToggle" href="javascript:ShowHide('ID0ABCAE0ECAEStacktrace','ID0ABCAE0ECAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62490/session/a4c17895dfddb1048038dc415d72725d/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">2.03 minutes</td>
+                  </tr>
+                  <tr id="ID0ABCAE0ECAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 75
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_While_Add_Item_Ito_Wishlist() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 41
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_SignIn_While_CheckOut</td>
+                    <td class="Messages"><a style="float:right;" id="ID0AQCAE0TCAEStacktraceToggle" href="javascript:ShowHide('ID0AQCAE0TCAEStacktrace','ID0AQCAE0TCAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut threw exception: 
+OpenQA.Selenium.WebDriverException: The HTTP request to the remote WebDriver server for URL http://localhost:62483/session/1c2e46477aa4a3112f3afd6db282a2f4/url timed out after 60 seconds. ---&gt; System.Threading.Tasks.TaskCanceledException: A task was canceled.<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">1.41 minutes</td>
+                  </tr>
+                  <tr id="ID0AQCAE0TCAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.&lt;MakeHttpRequest&gt;d__35.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+--- End of inner exception stack trace ---
+    at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.set_Url(String value)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 89
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_SignIn_While_CheckOut() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 28
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="Test">
+                    <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+                    <td class="failed">FAILED</td>
+                    <td class="Function">PlaceOrder_Register_Before_Checkout (Data Row 0)</td>
+                    <td class="Messages">PlaceOrder_Register_Before_Checkout<a style="float:right;" id="ID0AWFAE0ZFAEStacktraceToggle" href="javascript:ShowHide('ID0AWFAE0ZFAEStacktrace','ID0AWFAE0ZFAEStacktraceToggle','Show Stacktrace','Hide Stacktrace');">Show Stacktrace</a><br>Test method SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout threw exception: 
+OpenQA.Selenium.WebDriverException: Process unexpectedly closed with status 0<br></td>
+                    <td class="Message"></td>
+                    <td class="Message">33.16 seconds</td>
+                  </tr>
+                  <tr id="ID0AWFAE0ZFAEStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex">    at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxDriverService service, FirefoxOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Firefox.FirefoxDriver..ctor(FirefoxOptions options)
+   at SQABootCampFinalProject.PageObjectModel.BaseClass.CommonMethodClass.SetUpApplication(String Browser) in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\BaseClass\BaseClass.cs:line 101
+   at SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase.PlaceOrder_Register_Before_Checkout() in C:\Users\raees\source\repos\SQABootCampFinalProject\PageObjectModel\PlaceOrder\PlaceOrderTestCase.cs:line 62
+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                  CalculateTestsStatuses('ID0AJCAE0MCAETestsContainer','ID0AJCAE0MCAEcanvas');
+                </script></tbody>
+      </table>
+      <Table>
+        <caption>Five most slowest tests</caption>
+        <thead>
+          <tr class="odd">
+            <th scope="col">Time</th>
+            <th scope="col" abbr="Status">Status</th>
+            <th scope="col" abbr="Test">Test</th>
+            <th scope="col" abbr="Message">Owner</th>
+            <th scope="col" abbr="Message">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+            <td class="failed">FAILED</td>
+            <td class="Function slowest">SQABOOTCAUMP01_FINAL_PROJECT.SignUpClassTestCases
+                      .Verify_Sign_up_new_user_with_valid_Credentials (Data Row 0)</td>
+            <td></td>
+            <td class="Message slowest">2.04 minutes</td>
+          </tr>
+          <tr>
+            <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+            <td class="failed">FAILED</td>
+            <td class="Function slowest">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.NewFolder1.PlaceOrderTestCase
+                      .PlaceOrder_Register_While_Add_Item_Ito_Wishlist (Data Row 0)</td>
+            <td></td>
+            <td class="Message slowest">2.03 minutes</td>
+          </tr>
+          <tr>
+            <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+            <td class="failed">FAILED</td>
+            <td class="Function slowest">SQABootCampFinalProject.PageObjectModel.AddToCart.AddToCartTestCases
+                      .AddItems_into_Cart_With_Valid_Boundries</td>
+            <td></td>
+            <td class="Message slowest">1.87 minutes</td>
+          </tr>
+          <tr>
+            <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+            <td class="failed">FAILED</td>
+            <td class="Function slowest">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.SubScriptionPage.SubscriptionPageTestCase
+                      .Subscription_With_InValid_Email_HomePage (Data Row 0)</td>
+            <td></td>
+            <td class="Message slowest">1.78 minutes</td>
+          </tr>
+          <tr>
+            <th scope="row" class="column1">10/20/2022 9:00:43 AM</th>
+            <td class="failed">FAILED</td>
+            <td class="Function slowest">SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.SearchClassTestCase
+                      .Search_Products_By_Invalid_Data (Data Row 0)</td>
+            <td></td>
+            <td class="Message slowest">1.76 minutes</td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <h6>Automation Test Results</h6>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </div>
+  </body><script>
+        CalculateTotalPrecents();
+      </script></html>

@@ -19,10 +19,10 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
 
         By shippingh = By.Id("block-shipping-heading");
         //drop down
-        By selecdropdown = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/div[1]/div[2]/form[1]/fieldset/div[1]/div/select");
+        By Summary = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/div[1]/div[2]/form[1]/fieldset/div[1]/div/select");
         By state = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/div[1]/div[2]/form[1]/fieldset/div[2]/div/select");
         By zipcode = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/div[1]/div[2]/form[1]/fieldset/div[4]/div/input");
-        By btn = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/ul/li[1]/button/span");
+        By proceed = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/ul/li[1]/button/span");
         //stark
         By multipleaddress = By.XPath("/html/body/div[2]/main/div[3]/div/div[2]/div[1]/ul/li[2]/a/span");
         //autum pullie locator
@@ -44,8 +44,8 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Select_Drop_Down()
         {
-            Find_Elements_and_Validate(selecdropdown);
-            MultipleItems_From_Drop_Down(selecdropdown);
+            Find_Elements_and_Validate(Summary);
+            MultipleItems_From_Drop_Down(Summary);
         }
         public void Select_State()
         {
@@ -60,10 +60,10 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
         }
         public void Proceed()
         {
-            Find_Elements_and_Validate(btn);
-            Scroll_To_Element(btn);
-            Perform_Action(btn);
-            clickItems(btn);
+            Find_Elements_and_Validate(proceed);
+            Scroll_To_Element(proceed);
+            Perform_Action(proceed);
+            clickItems(proceed);
             Sleep(7);
         }
         //edit shopping cart
@@ -79,7 +79,7 @@ namespace SQABOOTCAUMP01_FINAL_PROJECT_Umar_Khursheed_.PageObjectModel.Home
             Scroll_To_Bottom();
             Perform_Action(multipleaddress);
             clickItems(multipleaddress);
-            Sleep(7);
+            Sleep(4);
 
         }
         public void Shopping_Cart_Ingrid()
